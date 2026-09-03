@@ -4,21 +4,36 @@
   --font-display: var(--font-syne), sans-serif;
   --font-body: var(--font-inter), sans-serif;
 
+  /* Manchester United & Ferrel Editorial Flame Palette */
+  --color-flame: #DA291C;
+  --color-flame-hover: #b81e13;
+
+  /* Warm Alabaster to Deep Ink Scale (from Ferrel's Portfolio) */
+  --color-flax-smoke-50: #fbfaf7;
+  --color-flax-smoke-100: #ebe9e1;
+  --color-flax-smoke-200: #dedad0;
+  --color-flax-smoke-300: #c9c4b7;
+  --color-flax-smoke-400: #a7a192;
+  --color-flax-smoke-500: #7b7464;
+  --color-flax-smoke-600: #575245;
+  --color-flax-smoke-700: #3b372e;
+  --color-flax-smoke-800: #26231c;
+  --color-flax-smoke-900: #1a1813;
+  --color-flax-smoke-950: #0e0d0a;
+
+  /* Warm Card Surface */
+  --color-surface-card: #121211;
+  --color-surface-hover: #181817;
+
+  /* Brand Colors */
   --color-brand-red: #DA291C;
-  --color-brand-red-dark: #A6190E;
   --color-bg-dark: #0A0A0A;
-  --color-bg-light: #FAFAFA;
-  --color-surface-dark: #141414;
-  --color-surface-light: #F0F0F0;
-  --color-border-dark: #222222;
-  --color-border-light: #E5E5E5;
-  --color-text-muted-dark: #8E8E93;
-  --color-text-muted-light: #6E6E73;
+  --color-bg-light: #fbfaf7;
 }
 
 :root {
   --bg-current: #0A0A0A;
-  --text-current: #FAFAFA;
+  --text-current: #fbfaf7;
 }
 
 * {
@@ -27,7 +42,7 @@
 
 html {
   background-color: #0A0A0A;
-  color: #FAFAFA;
+  color: #fbfaf7;
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -38,42 +53,6 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: clip;
-  background-color: #0A0A0A;
-  color: #FAFAFA;
-}
-
-/* Custom Selection */
-::selection {
-  background: #DA291C;
-  color: #FFFFFF;
-}
-
-/* Duotone Photographic Treatment Utility */
-.duotone-photo {
-  filter: grayscale(100%) contrast(120%) brightness(95%);
-  mix-blend-mode: luminosity;
-  transition: filter 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.duotone-container {
-  position: relative;
-  overflow: hidden;
-  background-color: #0A0A0A;
-}
-
-.duotone-container::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(218, 41, 28, 0.18) 0%, rgba(10, 10, 10, 0.75) 100%);
-  mix-blend-mode: multiply;
-  pointer-events: none;
-}
-
-/* Subtle Film Grain / Noise Overlay */
-.bg-noise {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
-  background-size: 24px 24px;
 }
 
 /* Lenis Recommended CSS */
@@ -93,16 +72,26 @@ html.lenis, html.lenis body {
   overflow: hidden;
 }
 
-.lenis.lenis-smooth iframe {
+.lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
 
-/* Reduced Motion Fallback */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+/* Proportional Fluid Spacing Utilities from Ferrel's Portfolio */
+@utility padding-x {
+  padding-left: clamp(1.25rem, 4vw, 4.5rem);
+  padding-right: clamp(1.25rem, 4vw, 4.5rem);
+}
+
+@utility padding-y {
+  padding-top: clamp(2.5rem, 5vw, 6rem);
+  padding-bottom: clamp(2.5rem, 5vw, 6rem);
+}
+
+/* Hide scrollbar for clean horizontal scrollers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

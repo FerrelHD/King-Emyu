@@ -106,21 +106,21 @@ export function TheThreeTeams() {
   return (
     <section
       id="three-teams"
-      className="relative w-full bg-[#0A0A0A] text-[#FAFAFA] py-20 md:py-28 px-6 sm:px-10 md:px-16 border-t border-[#1C1C1C] select-none shadow-[0_-20px_50px_rgba(0,0,0,0.6)]"
+      className="relative w-full bg-[#0A0A0A] text-flax-smoke-50 padding-y padding-x border-t border-white/10 select-none shadow-[0_-20px_50px_rgba(0,0,0,0.6)]"
     >
-      <div className="max-w-6xl mx-auto w-full">
+      <div className="max-w-7xl mx-auto w-full">
         {/* Section Header */}
-        <div className="flex items-center justify-between border-b border-[#222222] pb-5 mb-10 md:mb-14">
+        <div className="flex items-center justify-between border-b border-white/10 pb-5 mb-10 md:mb-14">
           <div>
-            <div className="font-mono text-xs tracking-[0.25em] text-[#DA291C] font-semibold uppercase mb-1">
-              ACT III &middot; REBUILDING CYCLES // 1994 &bull; 1999 &bull; 2008
+            <div className="font-mono text-xs tracking-[0.25em] text-flame font-semibold uppercase mb-1">
+              ( ACT III // REBUILDING CYCLES &middot; 1994 &bull; 1999 &bull; 2008 )
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black font-display tracking-tight uppercase">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black font-display tracking-tight uppercase text-flax-smoke-50">
               Three Dynasties. One Architect.
             </h2>
           </div>
-          <div className="hidden sm:block font-mono text-xs text-[#8E8E93] uppercase tracking-widest text-right">
-            26-YEAR TACTICAL EVOLUTION
+          <div className="hidden sm:block font-mono text-xs text-flax-smoke-400 uppercase tracking-widest text-right">
+            ( 26-YEAR TACTICAL EVOLUTION )
           </div>
         </div>
 
@@ -128,25 +128,25 @@ export function TheThreeTeams() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Left Column: Interactive Tabs */}
           <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1">
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col space-y-3">
               {TEAMS.map((team, index) => {
                 const isActive = activeIndex === index;
                 return (
                   <button
                     key={team.id}
                     onClick={() => handleTabClick(index)}
-                    className={`group relative flex items-start gap-4 p-5 md:p-6 text-left transition-all duration-300 border ${
+                    className={`group relative flex items-start gap-4 p-5 md:p-6 text-left transition-all duration-300 rounded-2xl border ${
                       isActive
-                        ? "bg-[#141414] border-[#2A2A2A]"
-                        : "bg-transparent border-transparent hover:bg-[#111111] hover:border-[#1F1F1F]"
+                        ? "bg-[#141413] border-white/20 shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
+                        : "bg-transparent border-transparent hover:bg-[#121211] hover:border-white/10"
                     }`}
                   >
                     {/* Active Red Progress Bar */}
-                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#1F1F1F]">
+                    <div className="absolute left-0 top-3 bottom-3 w-[3px] bg-white/10 rounded-full overflow-hidden">
                       {isActive && (
                         <motion.div
                           key={`progress-${index}-${isPaused}`}
-                          className="absolute top-0 left-0 w-full bg-[#DA291C] origin-top"
+                          className="absolute top-0 left-0 w-full bg-flame origin-top"
                           initial={{ height: "0%" }}
                           animate={
                             isPaused ? { height: "0%" } : { height: "100%" }
@@ -159,17 +159,17 @@ export function TheThreeTeams() {
                       )}
                     </div>
 
-                    <span className="font-mono text-xs font-bold text-[#8E8E93] mt-0.5 tabular-nums">
-                      /{team.id}
+                    <span className="font-mono text-xs font-bold text-flax-smoke-400 mt-0.5 tabular-nums">
+                      ( {team.id} )
                     </span>
 
                     <div className="flex flex-col gap-1.5 flex-1">
-                      <span className="font-mono text-[10px] text-[#DA291C] uppercase tracking-widest font-semibold">
+                      <span className="font-mono text-[10px] text-flame uppercase tracking-widest font-semibold">
                         {team.generation}
                       </span>
                       <span
                         className={`text-xl sm:text-2xl font-bold font-display tracking-tight transition-colors duration-300 ${
-                          isActive ? "text-white" : "text-[#8E8E93] group-hover:text-white"
+                          isActive ? "text-flax-smoke-50" : "text-flax-smoke-400 group-hover:text-flax-smoke-100"
                         }`}
                       >
                         {team.title}
@@ -187,16 +187,16 @@ export function TheThreeTeams() {
                             }}
                             className="overflow-hidden"
                           >
-                            <p className="text-xs sm:text-sm text-[#A1A1A6] font-body leading-relaxed pt-2 pb-3">
+                            <p className="text-xs sm:text-sm text-flax-smoke-300 font-body leading-relaxed pt-2 pb-3">
                               {team.description}
                             </p>
-                            <div className="pt-2 border-t border-[#222222] font-mono text-[10px] text-[#8E8E93] flex flex-col gap-1">
+                            <div className="pt-2 border-t border-white/10 font-mono text-[10px] text-flax-smoke-400 flex flex-col gap-1">
                               <div>
-                                <span className="text-white font-bold">HONOURS: </span>
+                                <span className="text-flax-smoke-100 font-bold">HONOURS: </span>
                                 <span dangerouslySetInnerHTML={{ __html: team.honours }} />
                               </div>
                               <div>
-                                <span className="text-white font-bold">KEY FIGURES: </span>
+                                <span className="text-flax-smoke-100 font-bold">KEY FIGURES: </span>
                                 <span>{team.keyFigures}</span>
                               </div>
                             </div>
@@ -210,14 +210,14 @@ export function TheThreeTeams() {
             </div>
           </div>
 
-          {/* Right Column: Sliding Gallery Frame */}
+          {/* Right Column: Sliding Gallery Frame (Ferrel Style Card) */}
           <div className="lg:col-span-7 flex flex-col justify-center order-1 lg:order-2">
             <div
               className="relative group/gallery"
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
             >
-              <div className="relative aspect-[16/10] overflow-hidden bg-[#111111] border border-[#222222] shadow-2xl">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-[#121211] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.85)]">
                 <AnimatePresence
                   initial={false}
                   custom={direction}
@@ -247,42 +247,42 @@ export function TheThreeTeams() {
                     />
 
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/30 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
 
                     {/* Top Stamp Tag */}
-                    <div className="absolute top-4 left-4 font-mono text-[10px] text-[#DA291C] bg-black/80 px-2.5 py-1 border border-[#DA291C]/60 tracking-widest uppercase font-bold">
+                    <div className="absolute top-4 left-4 font-mono text-[10px] text-flame bg-black/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/15 tracking-widest uppercase font-bold">
                       ERA {TEAMS[activeIndex].id} // {TEAMS[activeIndex].generation}
                     </div>
 
                     {/* Bottom Metadata */}
-                    <div className="absolute bottom-4 left-4 right-16 font-mono text-[11px] text-white flex items-center justify-between">
+                    <div className="absolute bottom-4 left-4 right-16 font-mono text-[11px] text-flax-smoke-50 flex items-center justify-between">
                       <span className="font-bold tracking-wider">{TEAMS[activeIndex].title}</span>
-                      <span className="text-[#DA291C]" dangerouslySetInnerHTML={{ __html: TEAMS[activeIndex].season }} />
+                      <span className="text-flame" dangerouslySetInnerHTML={{ __html: TEAMS[activeIndex].season }} />
                     </div>
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Navigation Arrows */}
+                {/* Navigation Arrows (Rounded Blur Buttons) */}
                 <div className="absolute bottom-4 right-4 flex gap-2 z-20">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       handlePrev();
                     }}
-                    className="w-9 h-9 bg-black/80 backdrop-blur-md border border-[#333333] hover:border-[#DA291C] flex items-center justify-center text-white transition-all active:scale-95"
+                    className="w-9 h-9 rounded-full bg-black/80 backdrop-blur-md border border-white/20 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all active:scale-95 cursor-pointer"
                     aria-label="Previous Team Generation"
                   >
-                    <ChevronLeft size={18} />
+                    <ChevronLeft size={16} />
                   </button>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       handleNext();
                     }}
-                    className="w-9 h-9 bg-black/80 backdrop-blur-md border border-[#333333] hover:border-[#DA291C] flex items-center justify-center text-white transition-all active:scale-95"
+                    className="w-9 h-9 rounded-full bg-black/80 backdrop-blur-md border border-white/20 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all active:scale-95 cursor-pointer"
                     aria-label="Next Team Generation"
                   >
-                    <ChevronRight size={18} />
+                    <ChevronRight size={16} />
                   </button>
                 </div>
               </div>
@@ -291,9 +291,9 @@ export function TheThreeTeams() {
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between border-t border-[#222222] pt-5 mt-12 font-mono text-xs text-[#8E8E93] tracking-widest uppercase">
-          <span>THE ONLY MANAGER TO WIN ENGLISH TITLES IN THREE SEPARATE DECADES</span>
-          <span>1994 &bull; 1999 &bull; 2008</span>
+        <div className="flex items-center justify-between border-t border-white/10 pt-5 mt-12 font-mono text-xs text-flax-smoke-400 tracking-widest uppercase">
+          <span>( THREE DECADES OF HEGEMONY )</span>
+          <span>( 1994 &bull; 1999 &bull; 2008 )</span>
         </div>
       </div>
     </section>

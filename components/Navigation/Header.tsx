@@ -23,26 +23,24 @@ export function Header() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-5 md:px-12 md:py-8 pointer-events-none mix-blend-difference text-white">
+    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between padding-x py-5 md:py-7 pointer-events-none mix-blend-difference text-flax-smoke-100 select-none">
       {/* Brand / Title */}
-      <div className="pointer-events-auto flex items-center gap-3">
-        <span className="font-mono text-xs md:text-sm font-bold tracking-tighter uppercase">
-          MANCHESTER UNITED
-        </span>
-        <span className="text-[#8E8E93] text-[10px] md:text-xs font-mono tracking-widest">
-          / 1986&ndash;2013
+      <div className="pointer-events-auto flex items-center gap-2.5 font-mono text-xs md:text-sm font-semibold tracking-tight uppercase">
+        <span className="text-flax-smoke-50">MANCHESTER UNITED</span>
+        <span className="text-flax-smoke-400 font-normal tracking-widest text-[11px] md:text-xs">
+          ( 1986 &mdash; 2013 )
         </span>
       </div>
 
-
       {/* Scroll Progress Metric */}
-      <div className="pointer-events-auto flex items-center gap-4 font-mono text-xs">
-        <span className="text-[10px] text-[#8E8E93] tracking-widest hidden sm:inline">
-          PROGRESS
+      <div className="pointer-events-auto flex items-center gap-2 font-mono text-xs">
+        <span className="text-[11px] text-flax-smoke-400 tracking-wider">
+          ( PROGRESS //
         </span>
-        <span className="font-bold tabular-nums">
+        <span className="font-bold text-flax-smoke-50 tabular-nums">
           {scrollPercent.toString().padStart(2, "0")}%
         </span>
+        <span className="text-[11px] text-flax-smoke-400">)</span>
       </div>
     </header>
   );

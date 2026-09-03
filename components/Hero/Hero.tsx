@@ -30,8 +30,8 @@ export function Hero({ isReady }: HeroProps) {
       if (imageRef.current) {
         tl.fromTo(
           imageRef.current,
-          { opacity: 0, scale: 1.06 },
-          { opacity: 0.35, scale: 1, duration: 2.0, ease: "power3.out" },
+          { opacity: 0, scale: 1.05 },
+          { opacity: 0.32, scale: 1, duration: 2.0, ease: "power3.out" },
           0
         );
       }
@@ -94,9 +94,9 @@ export function Hero({ isReady }: HeroProps) {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-screen w-full flex flex-col justify-between bg-[#0A0A0A] text-[#FAFAFA] px-6 sm:px-10 md:px-16 pt-24 md:pt-28 pb-10 select-none overflow-hidden"
+      className="relative min-h-screen w-full flex flex-col justify-between bg-[#0A0A0A] text-flax-smoke-50 padding-x pt-28 md:pt-32 pb-10 select-none overflow-hidden"
     >
-      {/* Background Archive Image with Subtle Duotone Gradient */}
+      {/* Background Archive Image with Warm Vignette */}
       <div
         ref={imageRef}
         className="absolute inset-0 pointer-events-none opacity-0 z-0 overflow-hidden"
@@ -109,20 +109,18 @@ export function Hero({ isReady }: HeroProps) {
           sizes="100vw"
           className="object-cover object-center filter grayscale contrast-125 brightness-75"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/75 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/90 via-[#0A0A0A]/40 to-[#0A0A0A]/90" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/95 via-[#0A0A0A]/40 to-[#0A0A0A]/95" />
       </div>
 
-      <div className="max-w-6xl mx-auto w-full h-full flex flex-col justify-between relative z-10 flex-1">
-        {/* Top Editorial Subtitle */}
-        <div className="flex items-center justify-between border-b border-[#222222]/80 pb-5">
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-xs tracking-[0.25em] text-[#DA291C] font-semibold">
-              CHRONICLE // 1986&ndash;2013
-            </span>
+      <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-between relative z-10 flex-1">
+        {/* Top Editorial Subtitle with Ferrel's Signature Parentheses */}
+        <div className="flex items-center justify-between border-b border-white/10 pb-5">
+          <div className="flex items-center gap-2 font-mono text-xs text-flame font-semibold uppercase tracking-widest">
+            <span>( CHRONICLE // 1986 &mdash; 2013 )</span>
           </div>
-          <div className="text-[11px] font-mono tracking-widest text-[#8E8E93] uppercase hidden sm:block">
-            AN UNPARALLELED DYNASTY IN MODERN SPORT
+          <div className="text-[11px] font-mono tracking-widest text-flax-smoke-400 uppercase hidden sm:block">
+            ( AN UNPARALLELED DYNASTY IN MODERN SPORT )
           </div>
         </div>
 
@@ -132,7 +130,7 @@ export function Hero({ isReady }: HeroProps) {
           <div className="overflow-visible">
             <h1
               ref={titleLine1Ref}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-[3.25rem] font-black tracking-tight leading-[1.1] uppercase font-display text-[#FAFAFA] whitespace-nowrap"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-[3.25rem] font-black tracking-tight leading-[1.1] uppercase font-display text-flax-smoke-50 whitespace-nowrap"
             >
               26 Years. 38 Trophies.
             </h1>
@@ -142,64 +140,59 @@ export function Hero({ isReady }: HeroProps) {
           <div className="overflow-visible mt-2 sm:mt-3">
             <h1
               ref={titleLine2Ref}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-[3.25rem] font-black tracking-tight leading-[1.1] uppercase font-display text-[#DA291C] whitespace-nowrap"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-[3.25rem] font-black tracking-tight leading-[1.1] uppercase font-display text-flame whitespace-nowrap"
             >
               One Manager.
             </h1>
           </div>
 
-          {/* Clean 2-line Description */}
-          <div className="mt-5 md:mt-6 max-w-xl">
+          {/* Clean 2-line Balanced Description */}
+          <div className="mt-5 md:mt-6 max-w-[44ch]">
             <p
               ref={paragraphRef}
-              className="text-sm sm:text-base text-[#A1A1A6] font-normal leading-relaxed font-body"
+              className="text-sm sm:text-base text-flax-smoke-300 font-normal leading-relaxed font-body text-balance"
             >
-              From 19th position in 1986 to thirty-eight major honors — Sir Alex Ferguson forged football&apos;s most relentless dynasty through uncompromising vision and discipline.
+              From 19th position in 1986 to thirty-eight major honors &mdash; Sir Alex Ferguson forged football&apos;s most relentless dynasty through uncompromising vision and discipline.
             </p>
           </div>
         </div>
 
-        {/* Bottom Metadata Strip & Scroll Cue */}
-        <div className="pt-6 border-t border-[#222222]/80 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+        {/* Bottom Metadata Strip & Minimalist Scroll Cue */}
+        <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
           {/* Core Stats Bar */}
           <div
             ref={metaRef}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-10 w-full md:w-auto"
+            className="grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-12 w-full md:w-auto"
           >
             <div>
-              <div className="font-mono text-[11px] text-[#8E8E93] uppercase tracking-wider">Matches</div>
-              <div className="text-xl md:text-2xl font-bold font-display text-white mt-0.5">1,500</div>
+              <div className="font-mono text-[10px] text-flax-smoke-400 uppercase tracking-widest">( MATCHES )</div>
+              <div className="text-xl md:text-2xl font-bold font-display text-flax-smoke-50 mt-1">1,500</div>
             </div>
             <div>
-              <div className="font-mono text-[11px] text-[#8E8E93] uppercase tracking-wider">Victories</div>
-              <div className="text-xl md:text-2xl font-bold font-display text-white mt-0.5">894</div>
+              <div className="font-mono text-[10px] text-flax-smoke-400 uppercase tracking-widest">( VICTORIES )</div>
+              <div className="text-xl md:text-2xl font-bold font-display text-flax-smoke-50 mt-1">894</div>
             </div>
             <div>
-              <div className="font-mono text-[11px] text-[#8E8E93] uppercase tracking-wider">League Titles</div>
-              <div className="text-xl md:text-2xl font-bold font-display text-[#DA291C] mt-0.5">13</div>
+              <div className="font-mono text-[10px] text-flax-smoke-400 uppercase tracking-widest">( TITLES )</div>
+              <div className="text-xl md:text-2xl font-bold font-display text-flame mt-1">13</div>
             </div>
             <div>
-              <div className="font-mono text-[11px] text-[#8E8E93] uppercase tracking-wider">Win Rate</div>
-              <div className="text-xl md:text-2xl font-bold font-display text-white mt-0.5">59.67%</div>
+              <div className="font-mono text-[10px] text-flax-smoke-400 uppercase tracking-widest">( WIN RATE )</div>
+              <div className="text-xl md:text-2xl font-bold font-display text-flax-smoke-50 mt-1">59.67%</div>
             </div>
           </div>
 
-          {/* Scroll Cue */}
+          {/* Minimalist Button Scroll Cue (Ferrel Style) */}
           <button
             ref={scrollCueRef}
             onClick={handleScrollClick}
-            data-cursor="SCROLL"
-            className="group flex items-center gap-3 text-xs font-mono tracking-widest text-[#8E8E93] hover:text-white transition-colors duration-300 uppercase self-end md:self-auto py-1"
+            className="group flex items-center gap-3 px-4 py-2 rounded-full border border-white/15 bg-white/5 hover:bg-white hover:text-black transition-all duration-300 font-mono text-[11px] tracking-widest text-flax-smoke-100 uppercase self-end md:self-auto cursor-pointer"
             aria-label="Scroll to The Appointment section"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#DA291C] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#DA291C]" />
+            <span>SCROLL TO EXPLORE</span>
+            <span className="text-flame group-hover:text-black group-hover:translate-y-0.5 transition-transform duration-300">
+              &darr;
             </span>
-            <span className="text-[11px]">SCROLL TO EXPLORE</span>
-            <div className="w-4 h-7 rounded-full border border-[#444444] flex items-start justify-center p-1 group-hover:border-[#DA291C] transition-colors">
-              <div className="w-1 h-1.5 rounded-full bg-white animate-bounce" />
-            </div>
           </button>
         </div>
       </div>

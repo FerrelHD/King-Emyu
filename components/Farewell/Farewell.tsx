@@ -38,7 +38,7 @@ export function Farewell() {
       tl.to(wordSpans, {
         opacity: 1,
         color: (i, target) => {
-          return target.classList.contains("highlight-word") ? "#DA291C" : "#FFFFFF";
+          return target.classList.contains("highlight-word") ? "#DA291C" : "#fbfaf7";
         },
         stagger: 0.08,
         ease: "none",
@@ -60,26 +60,23 @@ export function Farewell() {
     <section
       ref={sectionRef}
       id="farewell"
-      className="relative h-screen w-full bg-[#050505] text-[#FAFAFA] overflow-hidden select-none flex flex-col justify-between py-8 md:py-12 px-6 sm:px-10 md:px-16"
+      className="relative h-screen w-full bg-[#050505] text-flax-smoke-50 overflow-hidden select-none flex flex-col justify-between py-8 md:py-12 padding-x border-t border-white/10"
     >
       <div className="max-w-4xl mx-auto w-full h-full flex flex-col justify-between flex-1">
         {/* Top Header */}
-        <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-4">
-          <div className="flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-[#DA291C]" />
-            <span className="font-mono text-xs tracking-[0.3em] text-[#DA291C] font-semibold uppercase">
-              EPILOGUE // 12 MAY 2013
-            </span>
+        <div className="flex items-center justify-between border-b border-white/10 pb-4">
+          <div className="flex items-center gap-2 font-mono text-xs text-flame font-semibold uppercase tracking-wider">
+            <span>( EPILOGUE // 12 MAY 2013 )</span>
           </div>
-          <div className="font-mono text-xs tracking-widest text-[#8E8E93] uppercase hidden sm:block">
-            THE FAREWELL ADDRESS &middot; OLD TRAFFORD
+          <div className="font-mono text-xs tracking-widest text-flax-smoke-400 uppercase hidden sm:block">
+            ( THE FINAL ADDRESS &middot; OLD TRAFFORD )
           </div>
         </div>
 
         {/* Main Centerpiece Word-By-Word Speech & Signature */}
         <div className="my-auto text-center py-4 flex flex-col justify-center">
-          <div className="font-mono text-[10px] tracking-[0.3em] text-[#8E8E93] uppercase mb-4">
-            FINAL ORATION &middot; CENTER CIRCLE
+          <div className="font-mono text-[10px] tracking-[0.3em] text-flax-smoke-400 uppercase mb-4">
+            ( FINAL ORATION &middot; CENTER CIRCLE )
           </div>
 
           <div
@@ -109,9 +106,9 @@ export function Farewell() {
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between border-t border-[#1A1A1A] pt-4 font-mono text-xs text-[#6E6E73] tracking-widest uppercase">
-          <span>MATCH 1,500 &middot; 26 YEARS, 194 DAYS AT THE HELM</span>
-          <span>CLOSING COLOPHON &darr;</span>
+        <div className="flex items-center justify-between border-t border-white/10 pt-4 font-mono text-xs text-flax-smoke-400 tracking-widest uppercase">
+          <span>( MATCH 1,500 &middot; 26 YEARS, 194 DAYS )</span>
+          <span>( CLOSING COLOPHON &darr; )</span>
         </div>
       </div>
     </section>

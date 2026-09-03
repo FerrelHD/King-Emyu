@@ -110,23 +110,23 @@ export function Rebuild() {
     <section
       ref={sectionRef}
       id="rebuild"
-      className="relative h-screen w-full bg-[#0A0A0A] text-[#FAFAFA] overflow-hidden select-none flex flex-col justify-between py-10 md:py-14"
+      className="relative h-screen w-full bg-[#0A0A0A] text-flax-smoke-50 overflow-hidden select-none flex flex-col justify-between py-10 md:py-14"
     >
       {/* Section Header */}
-      <div className="max-w-6xl mx-auto w-full px-6 sm:px-10 md:px-16 flex items-end justify-between border-b border-[#222222] pb-4">
+      <div className="max-w-7xl mx-auto w-full padding-x flex items-end justify-between border-b border-white/10 pb-4">
         <div>
-          <div className="font-mono text-[11px] tracking-[0.25em] text-[#DA291C] font-semibold uppercase mb-1">
-            ACT I &middot; CHAPTER 02 // CARRINGTON ACADEMY
+          <div className="font-mono text-[11px] tracking-[0.25em] text-flame font-semibold uppercase mb-1">
+            ( ACT I // CHAPTER 02 &middot; 1992 )
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black font-display tracking-tight uppercase">
             The Class of &apos;92
           </h2>
         </div>
         <div className="hidden md:block text-right">
-          <div className="font-mono text-xs text-[#8E8E93] uppercase tracking-widest">
+          <div className="font-mono text-xs text-flax-smoke-300 uppercase tracking-widest">
             &ldquo;You can&apos;t win anything with kids.&rdquo;
           </div>
-          <div className="font-mono text-[10px] text-[#6E6E73] uppercase tracking-wider mt-0.5">
+          <div className="font-mono text-[10px] text-flax-smoke-400 uppercase tracking-wider mt-0.5">
             &mdash; Alan Hansen, August 1995
           </div>
         </div>
@@ -135,67 +135,66 @@ export function Rebuild() {
       {/* Horizontal Cards Wrapper */}
       <div
         ref={containerRef}
-        className="w-full my-auto overflow-visible pl-6 sm:pl-10 md:pl-20 flex items-center"
+        className="w-full my-auto overflow-visible pl-[4%] sm:pl-[5%] lg:pl-[6%] flex items-center"
       >
         <div ref={cardsRef} className="flex gap-6 items-stretch pr-20">
-          {/* Introductory Architectural Dossier */}
-          <div className="w-[300px] sm:w-[340px] shrink-0 bg-[#121212] border border-[#222222] p-8 flex flex-col justify-between">
+          {/* Introductory Architectural Card (Portfolio Style) */}
+          <div className="w-[300px] sm:w-[340px] shrink-0 rounded-2xl bg-[#121211] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.85)] p-7 sm:p-8 flex flex-col justify-between">
             <div>
-              <span className="text-[#DA291C] font-mono text-[11px] tracking-[0.3em] uppercase block mb-3 font-bold">
-                THE FOUNDATIONAL DOCTRINE
+              <span className="text-flame font-mono text-[10px] tracking-[0.3em] uppercase block mb-3 font-bold">
+                ( THE DOCTRINE )
               </span>
-              <h3 className="text-2xl font-black font-display uppercase tracking-tight leading-tight">
+              <h3 className="text-2xl font-black font-display uppercase tracking-tight leading-tight text-flax-smoke-50">
                 Homegrown Faith Over Quick Fixes
               </h3>
-              <p className="mt-5 text-xs sm:text-sm text-[#A1A1A6] font-body leading-relaxed">
+              <p className="mt-5 text-xs sm:text-sm text-flax-smoke-300 font-body leading-relaxed">
                 When Mark Hughes, Paul Ince, and Andrei Kanchelskis were sold in the summer of 1995, critics called it madness. Ferguson refused to buy replacements, entrusting United&apos;s destiny to six youth academy graduates.
               </p>
             </div>
-            <div className="pt-6 border-t border-[#1F1F1F] font-mono text-[11px] flex justify-between items-center">
-              <span className="text-[#8E8E93]">FA YOUTH CUP</span>
-              <span className="text-white font-bold">1992 REGISTRY</span>
+            <div className="pt-6 border-t border-white/10 font-mono text-[11px] flex justify-between items-center text-flax-smoke-400">
+              <span>( FA YOUTH CUP )</span>
+              <span className="text-flax-smoke-50 font-bold">1992 REGISTRY</span>
             </div>
           </div>
 
-          {/* Player Dossiers */}
-          {GRADUATES.map((player) => (
+          {/* Player Dossiers (Portfolio Style Rounded-2xl Cards) */}
+          {GRADUATES.map((player, idx) => (
             <div
               key={player.name}
-              data-cursor="VIEW"
-              className="group relative w-[280px] sm:w-[320px] shrink-0 bg-[#121212] hover:bg-[#161616] border border-[#222222] hover:border-[#DA291C] transition-all duration-300 p-7 flex flex-col justify-between"
+              className="group relative w-[280px] sm:w-[320px] shrink-0 rounded-2xl bg-[#121211] hover:bg-[#181817] border border-white/10 hover:border-white/25 shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-300 p-7 flex flex-col justify-between"
             >
               <div>
                 {/* Number & Role Header */}
-                <div className="flex justify-between items-baseline border-b border-[#1F1F1F] pb-3">
-                  <span className="font-display font-black text-4xl text-[#333333] group-hover:text-[#DA291C] transition-colors">
+                <div className="flex justify-between items-baseline border-b border-white/10 pb-3">
+                  <span className="font-display font-black text-4xl text-flax-smoke-700 group-hover:text-flame transition-colors">
                     {player.number}
                   </span>
                   <span
-                    className="font-mono text-[10px] uppercase tracking-wider text-[#8E8E93]"
+                    className="font-mono text-[10px] uppercase tracking-wider text-flax-smoke-400"
                     dangerouslySetInnerHTML={{ __html: player.role }}
                   />
                 </div>
 
                 {/* Player Name */}
-                <h4 className="text-xl sm:text-2xl font-black font-display tracking-tight text-white mt-4 uppercase">
+                <h4 className="text-xl sm:text-2xl font-black font-display tracking-tight text-flax-smoke-50 mt-4 uppercase">
                   {player.name}
                 </h4>
 
                 {/* Real Ferguson Quote */}
-                <blockquote className="mt-4 text-xs sm:text-sm text-[#A1A1A6] leading-relaxed font-body italic border-l border-[#333333] pl-3">
+                <blockquote className="mt-4 text-xs sm:text-sm text-flax-smoke-300 leading-relaxed font-body italic border-l border-white/15 pl-3">
                   &ldquo;{player.fergieQuote}&rdquo;
                 </blockquote>
               </div>
 
               {/* Career Ledger Details */}
-              <div className="pt-5 mt-6 border-t border-[#1F1F1F] font-mono text-[11px] flex flex-col gap-1.5">
-                <div className="flex justify-between text-[#8E8E93]">
+              <div className="pt-5 mt-6 border-t border-white/10 font-mono text-[11px] flex flex-col gap-1.5">
+                <div className="flex justify-between text-flax-smoke-400">
                   <span>RECORD:</span>
-                  <span className="text-white font-semibold">{player.appearances}</span>
+                  <span className="text-flax-smoke-100 font-semibold">{player.appearances}</span>
                 </div>
-                <div className="flex justify-between text-[#8E8E93]">
+                <div className="flex justify-between text-flax-smoke-400">
                   <span>HONOURS:</span>
-                  <span className="text-[#DA291C]" dangerouslySetInnerHTML={{ __html: player.trophies }} />
+                  <span className="text-flame" dangerouslySetInnerHTML={{ __html: player.trophies }} />
                 </div>
               </div>
             </div>
@@ -204,9 +203,9 @@ export function Rebuild() {
       </div>
 
       {/* Section Footer */}
-      <div className="max-w-6xl mx-auto w-full px-6 sm:px-10 md:px-16 flex justify-between items-center font-mono text-xs text-[#6E6E73] tracking-widest uppercase border-t border-[#222222] pt-4">
-        <span>HORIZONTAL SCRUB &middot; 6 HOMEGROWN ICONS</span>
-        <span>SCROLL TO PROGRESS &rarr;</span>
+      <div className="max-w-7xl mx-auto w-full padding-x flex justify-between items-center font-mono text-xs text-flax-smoke-400 tracking-widest uppercase border-t border-white/10 pt-4">
+        <span>( 06 HOMEGROWN ICONS )</span>
+        <span>( SCROLL TO PROGRESS &rarr; )</span>
       </div>
     </section>
   );

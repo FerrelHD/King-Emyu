@@ -126,28 +126,28 @@ export function TheClimb() {
     <section
       ref={containerRef}
       id="the-climb"
-      className="relative min-h-screen w-full bg-[#0A0A0A] text-[#FAFAFA] px-6 sm:px-10 md:px-16 py-20 md:py-28 flex flex-col justify-between select-none border-t border-[#1C1C1C]"
+      className="relative min-h-screen w-full bg-[#0A0A0A] text-flax-smoke-50 padding-x py-20 md:py-28 flex flex-col justify-between select-none border-t border-white/10"
     >
-      <div className="max-w-6xl mx-auto w-full h-full flex flex-col justify-between flex-1">
+      <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-between flex-1">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#222222] pb-6 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/10 pb-6 gap-4">
           <div>
-            <div className="font-mono text-xs tracking-[0.25em] text-[#DA291C] font-semibold uppercase mb-1">
-              ACT II &middot; CHAPTER 03 // 1993&ndash;1999
+            <div className="font-mono text-xs tracking-[0.25em] text-flame font-semibold uppercase mb-1">
+              ( ACT II // CHAPTER 03 &middot; 1993&ndash;1999 )
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black font-display tracking-tight uppercase">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black font-display tracking-tight uppercase text-flax-smoke-50">
               The Relentless Ledger
             </h2>
           </div>
-          <div className="font-mono text-xs text-[#8E8E93] uppercase tracking-widest sm:text-right">
-            SEVEN SEASONS &middot; NINE MAJOR HONOURS
+          <div className="font-mono text-xs text-flax-smoke-400 uppercase tracking-widest sm:text-right">
+            ( 07 SEASONS &middot; 09 MAJOR HONOURS )
           </div>
         </div>
 
         {/* Minimalist Editorial Ledger */}
-        <div ref={rowsRef} className="my-auto py-8 md:py-12 flex flex-col divide-y divide-[#1A1A1A]">
+        <div ref={rowsRef} className="my-auto py-8 md:py-12 flex flex-col divide-y divide-white/10">
           {/* Table Column Labels */}
-          <div className="hidden md:grid grid-cols-12 gap-4 pb-3 font-mono text-[11px] text-[#6E6E73] uppercase tracking-widest">
+          <div className="hidden md:grid grid-cols-12 gap-4 pb-3 font-mono text-[11px] text-flax-smoke-400 uppercase tracking-widest">
             <div className="col-span-2">SEASON</div>
             <div className="col-span-4">CAMPAIGN OUTCOME</div>
             <div className="col-span-4">TURNING POINT &amp; HISTORICAL CONTEXT</div>
@@ -157,12 +157,12 @@ export function TheClimb() {
           {LEDGER.map((row) => (
             <div
               key={row.season}
-              className="ledger-row group py-5 md:py-6 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 items-center transition-all duration-300 hover:bg-[#111111]/80 hover:px-3 -mx-3 rounded"
+              className="ledger-row group py-5 md:py-6 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 items-center transition-all duration-300 hover:bg-[#141413] hover:px-4 -mx-4 rounded-xl"
             >
               {/* Season */}
               <div className="col-span-2 flex items-center gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#333333] group-hover:bg-[#DA291C] transition-colors" />
-                <span className="font-mono text-base md:text-lg font-bold text-white tracking-tight">
+                <span className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-flame transition-colors" />
+                <span className="font-mono text-base md:text-lg font-bold text-flax-smoke-50 tracking-tight">
                   {row.season}
                 </span>
               </div>
@@ -171,27 +171,27 @@ export function TheClimb() {
               <div className="col-span-4 flex items-center gap-2">
                 <span
                   className={`font-display font-bold text-sm md:text-base tracking-tight ${
-                    row.isTrophy ? "text-white group-hover:text-[#DA291C] transition-colors" : "text-[#8E8E93]"
+                    row.isTrophy ? "text-flax-smoke-50 group-hover:text-flame transition-colors" : "text-flax-smoke-400"
                   }`}
                 >
                   {row.outcome}
                 </span>
                 {row.trophiesCount > 0 && (
-                  <span className="font-mono text-[9px] font-bold px-1.5 py-0.5 rounded bg-[#DA291C]/15 text-[#DA291C] border border-[#DA291C]/30 shrink-0">
+                  <span className="font-mono text-[9px] font-bold px-2 py-0.5 rounded-full bg-flame/15 text-flame border border-flame/30 shrink-0">
                     +{row.trophiesCount} TROPHY
                   </span>
                 )}
               </div>
 
               {/* Narrative Context */}
-              <div className="col-span-4 text-xs sm:text-sm text-[#A1A1A6] font-body leading-relaxed">
+              <div className="col-span-4 text-xs sm:text-sm text-flax-smoke-300 font-body leading-relaxed">
                 {row.narrative}
               </div>
 
               {/* Metrics */}
-              <div className="col-span-2 flex md:justify-end gap-3 font-mono text-xs text-[#8E8E93]">
-                <span className="text-white font-semibold">{row.points}</span>
-                <span className="text-[#6E6E73]">&bull;</span>
+              <div className="col-span-2 flex md:justify-end gap-3 font-mono text-xs text-flax-smoke-400">
+                <span className="text-flax-smoke-100 font-semibold">{row.points}</span>
+                <span className="text-white/20">&bull;</span>
                 <span>{row.goalDiff}</span>
               </div>
             </div>
@@ -199,9 +199,9 @@ export function TheClimb() {
         </div>
 
         {/* Section Footer */}
-        <div className="flex items-center justify-between border-t border-[#222222] pt-5 font-mono text-xs text-[#8E8E93] tracking-widest uppercase">
-          <span>SUMMIT APPROACHING &middot; THE 1999 PINNACLE NEXT</span>
-          <span>03 / 10</span>
+        <div className="flex items-center justify-between border-t border-white/10 pt-5 font-mono text-xs text-flax-smoke-400 tracking-widest uppercase">
+          <span>( SUMMIT APPROACHING &middot; THE 1999 PINNACLE NEXT )</span>
+          <span>( 03 / 10 )</span>
         </div>
       </div>
     </section>

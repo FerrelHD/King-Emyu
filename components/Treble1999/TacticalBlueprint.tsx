@@ -58,19 +58,19 @@ export function TacticalBlueprint({ isActive }: TacticalBlueprintProps) {
   return (
     <div
       ref={containerRef}
-      className="relative w-full bg-[#080808] border border-[#1F1F1F] p-4 sm:p-5 flex flex-col justify-between select-none"
+      className="relative w-full bg-[#121211] border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] p-5 sm:p-6 flex flex-col justify-between select-none"
     >
       {/* Blueprint Header */}
-      <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-3 mb-3 font-mono text-[10px] text-[#8E8E93] uppercase tracking-wider">
+      <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-3 font-mono text-[10px] text-flax-smoke-400 uppercase tracking-wider">
         <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#DA291C] animate-pulse" />
-          <span className="text-white font-bold">TACTICAL BLUEPRINT // 90+3&apos; CAMP NOU</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-flame animate-pulse" />
+          <span className="text-flax-smoke-100 font-bold">( TACTICAL BLUEPRINT // 90+3&apos; CAMP NOU )</span>
         </div>
-        <span className="text-[#DA291C] font-bold">COORDINATE: 92:17</span>
+        <span className="text-flame font-bold">( 92:17 )</span>
       </div>
 
       {/* SVG Pitch Canvas */}
-      <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#0A0A0A] border border-[#191919]">
+      <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl bg-black/80 border border-white/10">
         <svg
           viewBox="0 0 500 280"
           fill="none"
@@ -78,28 +78,28 @@ export function TacticalBlueprint({ isActive }: TacticalBlueprintProps) {
           className="w-full h-full"
         >
           {/* Pitch Outer Boundaries */}
-          <rect x="20" y="15" width="460" height="250" stroke="#1F1F1F" strokeWidth="1" strokeDasharray="3 3" />
+          <rect x="20" y="15" width="460" height="250" stroke="#26231c" strokeWidth="1" strokeDasharray="3 3" />
 
           {/* Goal Frame (Top Center) */}
-          <rect x="190" y="15" width="120" height="15" stroke="#444444" strokeWidth="1.5" fill="#141414" />
-          <line x1="200" y1="15" x2="200" y2="30" stroke="#2A2A2A" strokeWidth="1" />
-          <line x1="220" y1="15" x2="220" y2="30" stroke="#2A2A2A" strokeWidth="1" />
-          <line x1="240" y1="15" x2="240" y2="30" stroke="#2A2A2A" strokeWidth="1" />
-          <line x1="260" y1="15" x2="260" y2="30" stroke="#2A2A2A" strokeWidth="1" />
-          <line x1="280" y1="15" x2="280" y2="30" stroke="#2A2A2A" strokeWidth="1" />
-          <line x1="300" y1="15" x2="300" y2="30" stroke="#2A2A2A" strokeWidth="1" />
+          <rect x="190" y="15" width="120" height="15" stroke="#575245" strokeWidth="1.5" fill="#141414" />
+          <line x1="200" y1="15" x2="200" y2="30" stroke="#3b372e" strokeWidth="1" />
+          <line x1="220" y1="15" x2="220" y2="30" stroke="#3b372e" strokeWidth="1" />
+          <line x1="240" y1="15" x2="240" y2="30" stroke="#3b372e" strokeWidth="1" />
+          <line x1="260" y1="15" x2="260" y2="30" stroke="#3b372e" strokeWidth="1" />
+          <line x1="280" y1="15" x2="280" y2="30" stroke="#3b372e" strokeWidth="1" />
+          <line x1="300" y1="15" x2="300" y2="30" stroke="#3b372e" strokeWidth="1" />
 
           {/* 6-Yard Box */}
-          <rect x="160" y="15" width="180" height="45" stroke="#222222" strokeWidth="1" />
+          <rect x="160" y="15" width="180" height="45" stroke="#26231c" strokeWidth="1" />
 
           {/* Penalty Box (18-Yard) */}
-          <rect x="90" y="15" width="320" height="110" stroke="#262626" strokeWidth="1.2" />
+          <rect x="90" y="15" width="320" height="110" stroke="#3b372e" strokeWidth="1.2" />
 
           {/* Penalty Arc */}
-          <path d="M 190,125 A 60 60 0 0 0 310,125" stroke="#222222" strokeWidth="1" strokeDasharray="3 3" fill="none" />
+          <path d="M 190,125 A 60 60 0 0 0 310,125" stroke="#26231c" strokeWidth="1" strokeDasharray="3 3" fill="none" />
 
           {/* Penalty Spot */}
-          <circle cx="250" cy="85" r="2" fill="#333333" />
+          <circle cx="250" cy="85" r="2" fill="#3b372e" />
 
           {/* Top-Left Corner Arc (Byline Corner Flag) */}
           <path d="M 20,35 A 20 20 0 0 0 40,15" stroke="#DA291C" strokeWidth="2" fill="none" />
@@ -174,13 +174,13 @@ export function TacticalBlueprint({ isActive }: TacticalBlueprintProps) {
       </div>
 
       {/* Blueprint Legend / Telemetry */}
-      <div className="mt-3 pt-3 border-t border-[#1A1A1A] grid grid-cols-3 gap-2 font-mono text-[9px] text-[#8E8E93] uppercase">
+      <div className="mt-3 pt-3 border-t border-white/10 grid grid-cols-3 gap-2 font-mono text-[9px] text-flax-smoke-400 uppercase">
         <div>
-          <span className="text-[#DA291C] font-bold">PHASE 1: </span>
-          <span>Corner from byline (0.00s)</span>
+          <span className="text-flame font-bold">PHASE 1: </span>
+          <span>Byline corner (0.00s)</span>
         </div>
         <div>
-          <span className="text-white font-bold">PHASE 2: </span>
+          <span className="text-flax-smoke-100 font-bold">PHASE 2: </span>
           <span>Downward glance (+1.12s)</span>
         </div>
         <div>
