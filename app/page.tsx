@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Preloader } from "@/components/Preloader/Preloader";
 import { Header } from "@/components/Navigation/Header";
 import { Hero } from "@/components/Hero/Hero";
+import { RedThread } from "@/components/Decorative/RedThread";
 import { Appointment } from "@/components/Appointment/Appointment";
 import { Rebuild } from "@/components/Rebuild/Rebuild";
 import { FirstTitle } from "@/components/FirstTitle/FirstTitle";
@@ -37,19 +38,25 @@ export default function Home() {
       {/* Act I: The Beginning / Hero */}
       <Hero isReady={isLoaded} />
 
-      {/* Act I &middot; Chapter 01: The Appointment (1986) */}
-      <Appointment />
+      {/* Multi-Section Continuous Red Thread Zone (Act I -> Act II) */}
+      <div id="odyssey-zone" className="relative w-full overflow-visible">
+        {/* Wide Cross-Section Glowing SVG Line */}
+        <RedThread targetZoneId="odyssey-zone" />
 
-      {/* Act I &middot; Chapter 02: The Rebuild & Class of '92 (Horizontal Cards) */}
-      <Rebuild />
+        {/* Act I · Chapter 01: The Appointment (1986) */}
+        <Appointment />
 
-      {/* Act II &middot; Chapter 01: First Title (1993) */}
-      <FirstTitle />
+        {/* Act I · Chapter 02: The Rebuild & Class of '92 (Horizontal Cards) */}
+        <Rebuild />
 
-      {/* Act II &middot; Chapter 02: The Climb (1993-1999 SVG Chart) */}
-      <TheClimb />
+        {/* Act II · Chapter 01: First Title (1993) */}
+        <FirstTitle />
 
-      {/* Act II &middot; Chapter 03: The Treble 1999 (Pinned Centerpiece) */}
+        {/* Act II · Chapter 02: The Climb (The Odyssey) */}
+        <TheClimb />
+      </div>
+
+      {/* Act II · Chapter 03: The Treble 1999 (Pinned Centerpiece) */}
       <Treble1999 />
 
       {/* Act III &middot; Chapter 01: The Three Dynasties (Interactive Vertical Tabs) */}

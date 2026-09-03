@@ -110,7 +110,7 @@ export function Rebuild() {
     <section
       ref={sectionRef}
       id="rebuild"
-      className="relative h-screen w-full bg-[#0A0A0A] text-flax-smoke-50 overflow-hidden select-none flex flex-col justify-between py-10 md:py-14"
+      className="relative h-screen w-full bg-transparent text-flax-smoke-50 overflow-hidden select-none flex flex-col justify-between py-10 md:py-14"
     >
       {/* Section Header */}
       <div className="max-w-7xl mx-auto w-full padding-x flex items-end justify-between border-b border-white/10 pb-4">

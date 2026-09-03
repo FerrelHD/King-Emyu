@@ -1,132 +1,42 @@
 "use client";
 
 import React, { useRef } from "react";
-import { useGSAP } from "@/lib/use-gsap";
-import { gsap } from "@/lib/gsap-config";
-
-const SVG_PATH_D =
-  "M876.605 394.131C788.982 335.917 696.198 358.139 691.836 416.303C685.453 501.424 853.722 498.43 941.95 409.714C1016.1 335.156 1008.64 186.907 906.167 142.846C807.014 100.212 712.699 198.494 789.049 245.127C889.053 306.207 986.062 116.979 840.548 43.3233C743.932 -5.58141 678.027 57.1682 672.279 112.188C666.53 167.208 712.538 172.943 736.353 163.088C760.167 153.234 764.14 120.924 746.651 93.3868C717.461 47.4252 638.894 77.8642 601.018 116.979C568.164 150.908 557 201.079 576.467 246.924C593.342 286.664 630.24 310.55 671.68 302.614C756.114 286.446 729.747 206.546 681.86 186.442C630.54 164.898 492 209.318 495.026 287.644C496.837 334.494 518.402 366.466 582.455 367.287C680.013 368.538 771.538 299.456 898.634 292.434C1007.02 286.446 1192.67 309.384 1242.36 382.258C1266.99 418.39 1273.65 443.108 1247.75 474.477C1217.32 511.33 1149.4 511.259 1096.84 466.093C1044.29 420.928 1029.14 380.576 1033.97 324.172C1038.31 273.428 1069.55 228.986 1117.2 216.384C1152.2 207.128 1188.29 213.629 1194.45 245.127C1201.49 281.062 1132.22 280.104 1100.44 272.673C1065.32 264.464 1044.22 234.837 1032.77 201.413C1019.29 162.061 1029.71 131.126 1056.44 100.965C1086.19 67.4032 1143.96 54.5526 1175.78 86.1513C1207.02 117.17 1186.81 143.379 1156.22 166.691C1112.57 199.959 1052.57 186.238 999.784 155.164C957.312 130.164 899.171 63.7054 931.284 26.3214C952.068 2.12513 996.288 3.87363 1007.22 43.58C1018.15 83.2749 1003.56 122.644 975.969 163.376C948.377 204.107 907.272 255.122 913.558 321.045C919.727 385.734 990.968 497.068 1063.84 503.35C1111.46 507.456 1166.79 511.984 1175.68 464.527C1191.52 379.956 1101.26 334.985 1030.29 377.017C971.109 412.064 956.297 483.647 953.797 561.655C947.587 755.413 1197.56 941.828 936.039 1140.66C745.771 1285.32 321.926 950.737 134.536 1202.19C-6.68295 1391.68 -53.4837 1655.38 131.935 1760.5C478.381 1956.91 1124.19 1515 1201.28 1997.83C1273.66 2451.23 100.805 1864.7 303.794 2668.89";
 
 export function TheClimb() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const pathRef = useRef<SVGPathElement | null>(null);
-  const glowPathRef = useRef<SVGPathElement | null>(null);
-  const corePathRef = useRef<SVGPathElement | null>(null);
-
-  useGSAP(
-    () => {
-      const section = sectionRef.current;
-      const mainPath = pathRef.current;
-      const glowPath = glowPathRef.current;
-      const corePath = corePathRef.current;
-
-      if (!section || !mainPath) return;
-
-      const pathLength = mainPath.getTotalLength();
-
-      // Initialize dash arrays for stroke animation
-      const paths = [mainPath, glowPath, corePath].filter(Boolean) as SVGPathElement[];
-      paths.forEach((p) => {
-        gsap.set(p, {
-          strokeDasharray: pathLength,
-          strokeDashoffset: pathLength * 0.8, // 20% already visible so it's immediately seen
-        });
-      });
-
-      // Animate stroke draw with Lenis-synced ScrollTrigger
-      gsap.to(paths, {
-        strokeDashoffset: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          pin: true,
-          pinSpacing: true,
-          start: "top top",
-          end: "+=180%",
-          scrub: 1.2,
-        },
-      });
-    },
-    [],
-    sectionRef
-  );
 
   return (
     <section
       ref={sectionRef}
       id="the-climb"
-      className="relative h-screen w-full bg-[#0A0A0A] text-flax-smoke-50 overflow-hidden select-none border-t border-white/10 flex flex-col justify-between padding-x py-8 md:py-10"
+      className="relative min-h-screen w-full bg-transparent text-flax-smoke-50 overflow-hidden select-none border-t border-white/10 flex flex-col justify-between padding-x py-16 md:py-24"
     >
       {/* Top Header Tag */}
-      <div className="max-w-7xl mx-auto w-full flex items-center justify-between border-b border-white/10 pb-4 z-20">
+      <div className="max-w-7xl mx-auto w-full flex items-center justify-between border-b border-white/10 pb-4 z-10">
         <div className="flex items-center gap-2 font-mono text-xs text-flame font-semibold uppercase tracking-wider">
           <span>( ACT II // THE ODYSSEY &middot; 1986 &mdash; 2013 )</span>
         </div>
         <div className="font-mono text-xs tracking-widest text-flax-smoke-400 uppercase hidden sm:block">
-          ( KINETIC TIMELINE )
+          ( THE ASCENT TO IMMORTALITY )
         </div>
       </div>
 
-      {/* Main Stage: Center Title with Giant Winding SVG Line Behind */}
-      <div className="relative my-auto w-full max-w-6xl mx-auto flex items-center justify-center min-h-[420px] md:min-h-[500px]">
-        {/* The SVG Scroll-Driven Path Animation Canvas */}
-        <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center overflow-visible">
-          <svg
-            viewBox="0 0 1300 2700"
-            fill="none"
-            overflow="visible"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-full max-h-[72vh] md:max-h-[78vh] object-contain opacity-95"
-          >
-            {/* Layer 1: Ambient Red Glow (Soft aura) */}
-            <path
-              ref={glowPathRef}
-              d={SVG_PATH_D}
-              stroke="#DA291C"
-              strokeWidth="28"
-              strokeLinecap="round"
-              opacity="0.35"
-              className="filter blur-[8px]"
-            />
-
-            {/* Layer 2: Main Bold Crimson Stroke */}
-            <path
-              ref={pathRef}
-              d={SVG_PATH_D}
-              stroke="#DA291C"
-              strokeWidth="16"
-              strokeLinecap="round"
-              className="filter drop-shadow-[0_0_15px_rgba(218,41,28,0.9)]"
-            />
-
-            {/* Layer 3: Sharp Radiant Core */}
-            <path
-              ref={corePathRef}
-              d={SVG_PATH_D}
-              stroke="#FFA099"
-              strokeWidth="5"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
-
-        {/* Minimalist Center Title Typography */}
-        <div className="relative z-10 text-center flex flex-col items-center pointer-events-none px-4">
-          <span className="font-mono text-xs md:text-sm text-flame tracking-[0.3em] uppercase mb-2 font-bold">
-            ( 26 YEARS &middot; 38 TROPHIES )
-          </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-display tracking-tight uppercase text-flax-smoke-50 leading-[1.05]">
-            The Relentless <br />
-            <span className="text-flame">Path.</span>
-          </h2>
-          <p className="mt-4 font-mono text-[11px] uppercase tracking-widest text-flax-smoke-400">
-            SCROLL TO TRACE THE DYNASTY &darr;
-          </p>
-        </div>
+      {/* Center Title with Expansive Breathing Room */}
+      <div className="my-auto text-center z-10 flex flex-col items-center py-12">
+        <span className="font-mono text-xs md:text-sm text-flame tracking-[0.3em] uppercase mb-3 font-bold">
+          ( 26 YEARS &middot; 38 TROPHIES )
+        </span>
+        <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-display tracking-tight uppercase text-flax-smoke-50 leading-[1.05]">
+          The Relentless <br />
+          <span className="text-flame">Path.</span>
+        </h2>
+        <p className="mt-6 font-mono text-xs uppercase tracking-widest text-flax-smoke-400 max-w-md">
+          A quarter-century of uncompromising standard, forging English football&apos;s greatest dynasty.
+        </p>
       </div>
 
       {/* Bottom Milestones Floating in Negative Space */}
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs text-flax-smoke-400 border-t border-white/10 pt-4 z-20">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 sm:grid-cols-3 gap-6 font-mono text-xs text-flax-smoke-400 border-t border-white/10 pt-5 z-10">
         <div>
           <span className="text-flame font-bold">1986 // </span>
           <span>THE ARRIVAL</span>
