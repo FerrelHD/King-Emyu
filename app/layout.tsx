@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Syne, Inter } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/Providers/SmoothScrollProvider";
-import { Cursor } from "@/components/Cursor/Cursor";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -37,7 +36,6 @@ export default function RootLayout({
     <html lang="en" className={`${syne.variable} ${inter.variable}`}>
       <body className="bg-[#0A0A0A] text-[#FAFAFA] antialiased selection:bg-[#DA291C] selection:text-white">
         <SmoothScrollProvider>
-          <Cursor />
           {children}
         </SmoothScrollProvider>
       </body>
