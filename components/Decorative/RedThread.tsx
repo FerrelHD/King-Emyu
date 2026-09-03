@@ -4,10 +4,10 @@ import React, { useRef } from "react";
 import { useGSAP } from "@/lib/use-gsap";
 import { gsap } from "@/lib/gsap-config";
 
-// Architectural, direct, wide-sweeping curve spanning multiple sections
-// (No confusing tight loops at the start, directly travels downward)
-const MULTI_SECTION_PATH =
-  "M 1120 40 C 920 380, 340 650, 220 1150 C 100 1600, 480 2000, 1220 2400 C 1420 2650, 1380 3150, 980 3500 C 580 3850, 180 4000, 160 4400 C 140 4800, 700 5000, 1140 5250";
+// Mathematically C1-continuous Bezier trajectory using SVG 'S' (Smooth Curveto)
+// Guaranteed zero kinks, zero broken angles, and pure organic flowing curves
+const SMOOTH_CONTINUOUS_PATH =
+  "M 1180 40 C 880 420, 280 850, 240 1350 S 720 2050, 1200 2550 S 580 3250, 250 3750 S 850 4450, 1200 4900 S 680 5400, 720 5700";
 
 interface RedThreadProps {
   targetZoneId: string;
@@ -38,15 +38,17 @@ export function RedThread({ targetZoneId }: RedThreadProps) {
         });
       });
 
-      // Animate continuously across the multi-section zone
+      // Luxurious, slow-paced and silky-smooth scroll scrub
+      // Extended scroll duration across the full journey so it never rushes
       gsap.to(paths, {
         strokeDashoffset: 0,
-        ease: "none",
+        ease: "power1.inOut",
         scrollTrigger: {
           trigger: targetZone,
-          start: "top 60%",
-          end: "bottom 80%",
-          scrub: 1.2,
+          start: "top 75%",
+          end: "bottom 30%",
+          scrub: 2.4, // Silky, cushioned inertia (bukan kecepetan / tersentak)
+          invalidateOnRefresh: true,
         },
       });
     },
@@ -55,43 +57,49 @@ export function RedThread({ targetZoneId }: RedThreadProps) {
   );
 
   return (
-    <div ref={containerRef} className="absolute inset-0 pointer-events-none z-0 overflow-visible w-full h-full">
+    <div
+      ref={containerRef}
+      className="absolute inset-0 pointer-events-none z-0 overflow-visible w-full h-full select-none"
+    >
       <svg
-        viewBox="0 0 1440 5300"
+        viewBox="0 0 1440 5750"
         fill="none"
         preserveAspectRatio="none"
         overflow="visible"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-full opacity-90"
       >
-        {/* Layer 1: Ambient Red Glow */}
+        {/* Layer 1: Ambient Red Glow (Soft aura) */}
         <path
           ref={glowPathRef}
-          d={MULTI_SECTION_PATH}
+          d={SMOOTH_CONTINUOUS_PATH}
           stroke="#DA291C"
           strokeWidth="32"
           strokeLinecap="round"
+          strokeLinejoin="round"
           opacity="0.3"
-          className="filter blur-[12px]"
+          className="filter blur-[14px]"
         />
 
         {/* Layer 2: Main Solid Manchester United Crimson Line */}
         <path
           ref={mainPathRef}
-          d={MULTI_SECTION_PATH}
+          d={SMOOTH_CONTINUOUS_PATH}
           stroke="#DA291C"
-          strokeWidth="16"
+          strokeWidth="15"
           strokeLinecap="round"
-          className="filter drop-shadow-[0_0_18px_rgba(218,41,28,0.9)]"
+          strokeLinejoin="round"
+          className="filter drop-shadow-[0_0_16px_rgba(218,41,28,0.85)]"
         />
 
         {/* Layer 3: Radiant Core Filament */}
         <path
           ref={corePathRef}
-          d={MULTI_SECTION_PATH}
+          d={SMOOTH_CONTINUOUS_PATH}
           stroke="#FFA8A0"
-          strokeWidth="4.5"
+          strokeWidth="4"
           strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </div>
