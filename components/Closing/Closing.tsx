@@ -69,7 +69,7 @@ export function Closing() {
 
         {/* Bottom copyright line */}
         <div className="flex flex-col sm:flex-row justify-between items-center text-[10px] font-mono text-[#555555] tracking-widest uppercase pt-8 border-t border-[#141414]">
-          <span>&copy; 1986&ndash;2013 THE FERGIE CHRONICLES</span>
+          <span>&copy; 1986&ndash;2013 RETROSPECTIVE ARCHIVE</span>
           <span>THE THEATRE OF DREAMS &middot; OLD TRAFFORD</span>
         </div>
       </div>

@@ -34,11 +34,6 @@ export function Header() {
         </span>
       </div>
 
-      {/* Act Tag */}
-      <div className="hidden md:flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] text-[#8E8E93] uppercase">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#DA291C]" />
-        <span>THE FERGIE CHRONICLES</span>
-      </div>
 
       {/* Scroll Progress Metric */}
       <div className="pointer-events-auto flex items-center gap-4 font-mono text-xs">
