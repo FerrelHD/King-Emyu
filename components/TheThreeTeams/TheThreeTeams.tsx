@@ -23,8 +23,8 @@ const TEAMS: TeamEra[] = [
     title: "The 1994 Double Winners",
     season: "1993&ndash;1994",
     description:
-      "Ferguson's first truly ruthless side: Eric Cantona, Mark Hughes, Paul Ince, Bryan Robson, and the impenetrable defensive tandem of Bruce & Pallister. Secured United's inaugural domestic Double.",
-    honours: "Premier League &middot; FA Cup &middot; Charity Shield",
+      "Ferguson's first ruthless machine. Cantona, Hughes, and Ince sealed United's inaugural domestic Double.",
+    honours: "Premier League &middot; FA Cup",
     keyFigures: "Cantona, Hughes, Ince, Bruce, Schmeichel",
     image: "/images/team-1994.jpg",
   },
@@ -34,8 +34,8 @@ const TEAMS: TeamEra[] = [
     title: "The 1999 Treble Immortals",
     season: "1998&ndash;1999",
     description:
-      "The Class of '92 in full bloom: Beckham, Giggs, Scholes, and the Neville brothers matured into world-beaters alongside Roy Keane, Jaap Stam, and the Yorke-Cole strikeforce. Football's pinnacle.",
-    honours: "Premier League &middot; FA Cup &middot; UEFA Champions League",
+      "The Class of '92 in full bloom alongside Keane and Yorke-Cole. The pinnacle of English football.",
+    honours: "Premier League &middot; FA Cup &middot; UCL",
     keyFigures: "Keane, Beckham, Giggs, Scholes, Yorke, Cole",
     image: "/images/team-1999.png",
   },
@@ -45,9 +45,9 @@ const TEAMS: TeamEra[] = [
     title: "The 2008 European Champions",
     season: "2007&ndash;2008",
     description:
-      "A devastating counter-attacking juggernaut spearheaded by Cristiano Ronaldo, Wayne Rooney, and Carlos Tevez, anchored by Van der Sar and the granite partnership of Ferdinand & Vidić.",
-    honours: "Premier League &middot; UEFA Champions League &middot; FIFA Club World Cup",
-    keyFigures: "Ronaldo, Rooney, Tevez, Ferdinand, Vidić, Van der Sar",
+      "Devastating counter-attacking trident of Ronaldo, Rooney, and Tevez, anchored by Ferdinand & Vidić.",
+    honours: "Premier League &middot; UCL &middot; Club World Cup",
+    keyFigures: "Ronaldo, Rooney, Tevez, Ferdinand, Vidić",
     image: "/images/team-2008.jpg",
   },
 ];
@@ -135,7 +135,7 @@ export function TheThreeTeams() {
                   <button
                     key={team.id}
                     onClick={() => handleTabClick(index)}
-                    className={`group relative flex items-start gap-4 p-5 md:p-6 text-left transition-all duration-300 rounded-2xl border ${
+                    className={`group relative flex items-start gap-4 p-5 text-left transition-all duration-300 rounded-2xl border ${
                       isActive
                         ? "bg-[#141413] border-white/20 shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
                         : "bg-transparent border-transparent hover:bg-[#121211] hover:border-white/10"
@@ -163,7 +163,7 @@ export function TheThreeTeams() {
                       ( {team.id} )
                     </span>
 
-                    <div className="flex flex-col gap-1.5 flex-1">
+                    <div className="flex flex-col gap-1 flex-1">
                       <span className="font-mono text-[10px] text-flame uppercase tracking-widest font-semibold">
                         {team.generation}
                       </span>
@@ -187,17 +187,13 @@ export function TheThreeTeams() {
                             }}
                             className="overflow-hidden"
                           >
-                            <p className="text-xs sm:text-sm text-flax-smoke-300 font-body leading-relaxed pt-2 pb-3">
+                            <p className="text-xs sm:text-sm text-flax-smoke-300 font-body leading-relaxed pt-2 pb-2">
                               {team.description}
                             </p>
                             <div className="pt-2 border-t border-white/10 font-mono text-[10px] text-flax-smoke-400 flex flex-col gap-1">
                               <div>
                                 <span className="text-flax-smoke-100 font-bold">HONOURS: </span>
                                 <span dangerouslySetInnerHTML={{ __html: team.honours }} />
-                              </div>
-                              <div>
-                                <span className="text-flax-smoke-100 font-bold">KEY FIGURES: </span>
-                                <span>{team.keyFigures}</span>
                               </div>
                             </div>
                           </motion.div>
@@ -210,7 +206,7 @@ export function TheThreeTeams() {
             </div>
           </div>
 
-          {/* Right Column: Sliding Gallery Frame (Ferrel Style Card) */}
+          {/* Right Column: Sliding Gallery Frame */}
           <div className="lg:col-span-7 flex flex-col justify-center order-1 lg:order-2">
             <div
               className="relative group/gallery"
@@ -262,7 +258,7 @@ export function TheThreeTeams() {
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Navigation Arrows (Rounded Blur Buttons) */}
+                {/* Navigation Arrows */}
                 <div className="absolute bottom-4 right-4 flex gap-2 z-20">
                   <button
                     onClick={(e) => {

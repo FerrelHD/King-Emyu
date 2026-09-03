@@ -18,32 +18,32 @@ const GRADUATES: PlayerDossier[] = [
   {
     name: "David Beckham",
     number: "07",
-    role: "Right Wing &middot; Specialist",
+    role: "Right Wing Specialist",
     debut: "September 1992",
     appearances: "394 Apps",
     trophies: "6 PL &bull; 2 FA &bull; 1 UCL",
     fergieQuote:
-      "He practiced with a relentless discipline to achieve an accuracy that other players wouldn't even contemplate.",
+      "He practiced with a relentless discipline to achieve an accuracy that others wouldn't contemplate.",
   },
   {
     name: "Ryan Giggs",
     number: "11",
-    role: "Left Wing &middot; Dynamic",
+    role: "Left Wing Maestro",
     debut: "March 1991",
     appearances: "963 Apps (Record)",
     trophies: "13 PL &bull; 4 FA &bull; 2 UCL",
     fergieQuote:
-      "I remember the first time I saw him. He floated over the ground like a cocker spaniel chasing silver paper in the wind.",
+      "He floated over the ground like a cocker spaniel chasing silver paper in the wind.",
   },
   {
     name: "Paul Scholes",
     number: "18",
-    role: "Central Midfield &middot; Orchestrator",
+    role: "Central Orchestrator",
     debut: "September 1994",
     appearances: "718 Apps",
     trophies: "11 PL &bull; 3 FA &bull; 2 UCL",
     fergieQuote:
-      "One of the greatest football brains this club ever possessed. He saw passes before anyone else even looked.",
+      "One of the greatest football brains this club ever possessed. He saw passes before anyone else.",
   },
   {
     name: "Gary Neville",
@@ -53,7 +53,7 @@ const GRADUATES: PlayerDossier[] = [
     appearances: "602 Apps",
     trophies: "8 PL &bull; 3 FA &bull; 2 UCL",
     fergieQuote:
-      "If he was an inch taller he'd be the best centre-half in Britain. The fiercest competitor I ever managed.",
+      "If he was an inch taller he'd be the best centre-half in Britain. A fierce, relentless competitor.",
   },
   {
     name: "Phil Neville",
@@ -63,17 +63,17 @@ const GRADUATES: PlayerDossier[] = [
     appearances: "386 Apps",
     trophies: "6 PL &bull; 3 FA &bull; 1 UCL",
     fergieQuote:
-      "The quintessential team player. Wherever I put him on the pitch, he gave every ounce of his soul for United.",
+      "The quintessential team player. Wherever I put him, he gave every ounce of his soul for United.",
   },
   {
     name: "Nicky Butt",
     number: "08",
-    role: "Defensive Midfield &middot; Enforcer",
+    role: "Defensive Enforcer",
     debut: "November 1992",
     appearances: "387 Apps",
     trophies: "6 PL &bull; 3 FA &bull; 1 UCL",
     fergieQuote:
-      "A streetfighter from Gorton. He would run through a brick wall for the badge and never ask for praise.",
+      "A streetfighter from Gorton. He would run through a brick wall for the badge.",
   },
 ];
 
@@ -138,17 +138,17 @@ export function Rebuild() {
         className="w-full my-auto overflow-visible pl-[4%] sm:pl-[5%] lg:pl-[6%] flex items-center"
       >
         <div ref={cardsRef} className="flex gap-6 items-stretch pr-20">
-          {/* Introductory Architectural Card (Portfolio Style) */}
-          <div className="w-[300px] sm:w-[340px] shrink-0 rounded-2xl bg-[#121211] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.85)] p-7 sm:p-8 flex flex-col justify-between">
+          {/* Introductory Doctrine Card */}
+          <div className="w-[280px] sm:w-[320px] shrink-0 rounded-2xl bg-[#121211] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.85)] p-7 flex flex-col justify-between">
             <div>
-              <span className="text-flame font-mono text-[10px] tracking-[0.3em] uppercase block mb-3 font-bold">
+              <span className="text-flame font-mono text-[10px] tracking-[0.3em] uppercase block mb-2 font-bold">
                 ( THE DOCTRINE )
               </span>
               <h3 className="text-2xl font-black font-display uppercase tracking-tight leading-tight text-flax-smoke-50">
                 Homegrown Faith Over Quick Fixes
               </h3>
-              <p className="mt-5 text-xs sm:text-sm text-flax-smoke-300 font-body leading-relaxed">
-                When Mark Hughes, Paul Ince, and Andrei Kanchelskis were sold in the summer of 1995, critics called it madness. Ferguson refused to buy replacements, entrusting United&apos;s destiny to six youth academy graduates.
+              <p className="mt-4 text-xs sm:text-sm text-flax-smoke-300 font-body leading-relaxed">
+                Ferguson refused to buy senior replacements in 1995, entrusting the club&apos;s future to six teenagers.
               </p>
             </div>
             <div className="pt-6 border-t border-white/10 font-mono text-[11px] flex justify-between items-center text-flax-smoke-400">
@@ -157,22 +157,21 @@ export function Rebuild() {
             </div>
           </div>
 
-          {/* Player Dossiers (Portfolio Style Rounded-2xl Cards) */}
-          {GRADUATES.map((player, idx) => (
+          {/* Minimalist Player Dossiers */}
+          {GRADUATES.map((player) => (
             <div
               key={player.name}
-              className="group relative w-[280px] sm:w-[320px] shrink-0 rounded-2xl bg-[#121211] hover:bg-[#181817] border border-white/10 hover:border-white/25 shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-300 p-7 flex flex-col justify-between"
+              className="group relative w-[260px] sm:w-[290px] shrink-0 rounded-2xl bg-[#121211] hover:bg-[#181817] border border-white/10 hover:border-white/25 shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between"
             >
               <div>
                 {/* Number & Role Header */}
                 <div className="flex justify-between items-baseline border-b border-white/10 pb-3">
-                  <span className="font-display font-black text-4xl text-flax-smoke-700 group-hover:text-flame transition-colors">
+                  <span className="font-display font-black text-3xl sm:text-4xl text-flax-smoke-700 group-hover:text-flame transition-colors">
                     {player.number}
                   </span>
-                  <span
-                    className="font-mono text-[10px] uppercase tracking-wider text-flax-smoke-400"
-                    dangerouslySetInnerHTML={{ __html: player.role }}
-                  />
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-flax-smoke-400">
+                    {player.role}
+                  </span>
                 </div>
 
                 {/* Player Name */}
@@ -181,13 +180,13 @@ export function Rebuild() {
                 </h4>
 
                 {/* Real Ferguson Quote */}
-                <blockquote className="mt-4 text-xs sm:text-sm text-flax-smoke-300 leading-relaxed font-body italic border-l border-white/15 pl-3">
+                <blockquote className="mt-3 text-xs text-flax-smoke-300 leading-relaxed font-body italic border-l border-white/15 pl-3">
                   &ldquo;{player.fergieQuote}&rdquo;
                 </blockquote>
               </div>
 
               {/* Career Ledger Details */}
-              <div className="pt-5 mt-6 border-t border-white/10 font-mono text-[11px] flex flex-col gap-1.5">
+              <div className="pt-4 mt-5 border-t border-white/10 font-mono text-[10px] sm:text-[11px] flex flex-col gap-1">
                 <div className="flex justify-between text-flax-smoke-400">
                   <span>RECORD:</span>
                   <span className="text-flax-smoke-100 font-semibold">{player.appearances}</span>

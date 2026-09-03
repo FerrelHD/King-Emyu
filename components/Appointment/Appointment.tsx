@@ -55,9 +55,9 @@ export function Appointment() {
     <section
       ref={targetRef}
       id="appointment"
-      className="relative min-h-screen w-full bg-[#0A0A0A] text-flax-smoke-100 padding-x pt-28 sm:pt-32 pb-16 select-none flex flex-col justify-between border-t border-white/10"
+      className="relative min-h-screen w-full bg-[#0A0A0A] text-flax-smoke-100 padding-x pt-24 sm:pt-28 pb-16 select-none flex flex-col justify-between border-t border-white/10"
     >
-      <div className="max-w-7xl mx-auto w-full flex flex-col justify-between flex-1">
+      <div className="max-w-6xl mx-auto w-full flex flex-col justify-between flex-1">
         {/* Section Header Tag */}
         <div className="flex items-center justify-between border-b border-white/10 pb-4">
           <div className="flex items-center gap-2 font-mono text-xs text-flame font-semibold uppercase tracking-wider">
@@ -68,7 +68,7 @@ export function Appointment() {
           </div>
         </div>
 
-        {/* Dynamic Scattered -> Converging Typography (Single Clean Line) */}
+        {/* Dynamic Scattered -> Converging Typography (Clean Single Line) */}
         <div className="pt-8 pb-4 text-center">
           <div className="font-mono text-[10px] tracking-[0.25em] text-flax-smoke-400 uppercase mb-2">
             ( ARCHIVE DOSSIER // TEAM REGISTRATION )
@@ -94,20 +94,19 @@ export function Appointment() {
           </p>
         </div>
 
-        {/* Authentic 1986 Squad Archive Photograph Document Frame (Portfolio Card Style) */}
+        {/* Authentic 1986 Squad Archive Photograph Document Frame (Clean Minimalist) */}
         <motion.div
           style={{ scale: photoScale, opacity: photoOpacity }}
           className="my-4 bg-[#121211] border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] p-5 sm:p-7 md:p-8"
         >
           {/* Document Header Metadata Bar */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 pb-4 mb-4 border-b border-white/10 font-mono text-[11px] text-flax-smoke-400 uppercase">
+          <div className="flex justify-between items-center pb-4 mb-4 border-b border-white/10 font-mono text-[11px] text-flax-smoke-400 uppercase">
             <div className="flex items-center gap-2">
               <span className="inline-block w-2 h-2 rounded-full bg-flame" />
-              <span className="font-bold text-flax-smoke-100">MANCHESTER UNITED F.C. &middot; SQUAD ARCHIVE</span>
+              <span className="font-bold text-flax-smoke-100">MANCHESTER UNITED F.C. &middot; SQUAD POOL</span>
             </div>
-            <div className="flex items-center gap-4 text-[10px]">
-              <span>LEAGUE POSITION: 19TH</span>
-              <span className="text-flame font-bold">REF: SAF-1986</span>
+            <div className="text-[10px] text-flame font-bold">
+              RANK: 19TH // SAF-1986
             </div>
           </div>
 
@@ -131,7 +130,7 @@ export function Appointment() {
 
             <div className="absolute bottom-3 left-4 right-4 text-flax-smoke-100 font-mono text-[9px] sm:text-[11px] flex justify-between items-end">
               <span className="tracking-wider truncate">
-                BRYAN ROBSON, NORMAN WHITESIDE, PAUL MCGRATH, GORDON STRACHAN, FRANK STAPLETON
+                BRYAN ROBSON (C), NORMAN WHITESIDE, PAUL MCGRATH, GORDON STRACHAN
               </span>
               <span className="text-flame font-bold hidden md:inline shrink-0 ml-2">
                 OLD TRAFFORD
@@ -139,23 +138,14 @@ export function Appointment() {
             </div>
           </div>
 
-          {/* Editorial Context */}
-          <div className="mt-5 pt-4 border-t border-white/10 grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
-            <div className="md:col-span-4 font-mono text-xs text-flax-smoke-400 uppercase leading-relaxed">
-              <div className="text-flax-smoke-100 font-bold mb-1">Squad Inherited (Nov 1986):</div>
-              <div>Bryan Robson (C) &middot; Norman Whiteside</div>
-              <div>Paul McGrath &middot; Gordon Strachan</div>
-              <div>Goal Difference: -5 &middot; Rank: 19th</div>
-            </div>
-
-            <div className="md:col-span-8 text-xs sm:text-sm text-flax-smoke-300 font-body leading-relaxed">
-              <p>
-                When Alex Ferguson walked into this dressing room on November 6, 1986, he inherited exceptional talent crippled by an entrenched drinking culture and fragile fitness. Ferguson immediately instituted mandatory discipline, dismantled cliques, and proclaimed his historic mission:
-              </p>
-              <blockquote className="mt-3 font-display font-bold text-sm sm:text-base text-flax-smoke-50 border-l-2 border-flame pl-3 italic">
-                &ldquo;My greatest challenge was knocking Liverpool right off their perch. And you can print that.&rdquo;
-              </blockquote>
-            </div>
+          {/* Minimalist 1-Line Iconic Mission Statement */}
+          <div className="mt-5 pt-4 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+            <blockquote className="font-display font-bold text-sm sm:text-base text-flax-smoke-50 border-l-2 border-flame pl-3 italic">
+              &ldquo;My greatest challenge was knocking Liverpool right off their perch. And you can print that.&rdquo;
+            </blockquote>
+            <span className="font-mono text-[10px] text-flax-smoke-400 uppercase tracking-widest shrink-0">
+              &mdash; SIR ALEX FERGUSON, 1986
+            </span>
           </div>
         </motion.div>
 
