@@ -13,65 +13,101 @@ interface HeroProps {
 export function Hero({ isReady }: HeroProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLDivElement | null>(null);
-  const titleLine1Ref = useRef<HTMLHeadingElement | null>(null);
-  const titleLine2Ref = useRef<HTMLHeadingElement | null>(null);
+  const topMetaRef = useRef<HTMLDivElement | null>(null);
   const paragraphRef = useRef<HTMLParagraphElement | null>(null);
   const metaRef = useRef<HTMLDivElement | null>(null);
   const scrollCueRef = useRef<HTMLButtonElement | null>(null);
+  const underlineRef = useRef<SVGPathElement | null>(null);
 
   const { scrollTo } = useLenisScroll();
 
   useGSAP(
     () => {
-      if (!isReady) return;
+      if (!isReady || !containerRef.current) return;
+
+      const words = containerRef.current.querySelectorAll(".hero-word");
+
+      // Setup initial states
+      gsap.set(words, { yPercent: 140, opacity: 0, rotateZ: 2 });
+      if (topMetaRef.current) gsap.set(topMetaRef.current, { y: -15, opacity: 0 });
+      if (paragraphRef.current) gsap.set(paragraphRef.current, { y: 24, opacity: 0 });
+      if (metaRef.current) gsap.set(metaRef.current, { y: 20, opacity: 0 });
+      if (scrollCueRef.current) gsap.set(scrollCueRef.current, { y: 20, opacity: 0 });
+
+      if (underlineRef.current) {
+        const pathLength = underlineRef.current.getTotalLength();
+        gsap.set(underlineRef.current, {
+          strokeDasharray: pathLength,
+          strokeDashoffset: pathLength,
+        });
+      }
 
       const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
+      // 1. Background slow ambient reveal (voldogfood style)
       if (imageRef.current) {
         tl.fromTo(
           imageRef.current,
-          { opacity: 0, scale: 1.05 },
-          { opacity: 0.32, scale: 1, duration: 2.0, ease: "power3.out" },
+          { opacity: 0, scale: 1.06 },
+          { opacity: 0.32, scale: 1, duration: 2.2, ease: "power2.out" },
           0
         );
       }
 
-      const lines = [titleLine1Ref.current, titleLine2Ref.current].filter(Boolean);
+      // 2. Top metadata subtle slide-down
+      if (topMetaRef.current) {
+        tl.to(topMetaRef.current, { y: 0, opacity: 1, duration: 0.9, ease: "power3.out" }, 0.15);
+      }
 
-      tl.fromTo(
-        lines,
-        { yPercent: 110, opacity: 0 },
+      // 3. Masked word-by-word kinetic slide up (voldogfood split-word formula)
+      tl.to(
+        words,
         {
           yPercent: 0,
           opacity: 1,
+          rotateZ: 0,
           duration: 1.1,
-          stagger: 0.15,
+          stagger: 0.07,
           ease: "power4.out",
         },
-        0.2
+        0.25
       );
 
+      // 4. Micro SVG drawn accent under "Manager."
+      if (underlineRef.current) {
+        tl.to(
+          underlineRef.current,
+          {
+            strokeDashoffset: 0,
+            duration: 1.0,
+            ease: "power2.out",
+          },
+          "-=0.4"
+        );
+      }
+
+      // 5. Paragraph description fade
       if (paragraphRef.current) {
-        tl.fromTo(
+        tl.to(
           paragraphRef.current,
-          { y: 20, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.9, ease: "power3.out" },
-          0.6
+          "-=0.6"
         );
       }
 
+      // 6. Bottom stats and minimal CTA cue
       if (metaRef.current && scrollCueRef.current) {
-        tl.fromTo(
+        tl.to(
           [metaRef.current, scrollCueRef.current],
-          { y: 15, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power2.out" },
-          0.8
+          { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power3.out" },
+          "-=0.5"
         );
       }
 
+      // Scroll Parallax for background
       if (containerRef.current && imageRef.current) {
         gsap.to(imageRef.current, {
-          yPercent: 18,
+          yPercent: 15,
           ease: "none",
           scrollTrigger: {
             trigger: containerRef.current,
@@ -115,7 +151,10 @@ export function Hero({ isReady }: HeroProps) {
 
       <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-between relative z-10 flex-1">
         {/* Top Editorial Subtitle with Ferrel's Signature Parentheses */}
-        <div className="flex items-center justify-between border-b border-white/10 pb-5">
+        <div
+          ref={topMetaRef}
+          className="flex items-center justify-between border-b border-white/10 pb-5"
+        >
           <div className="flex items-center gap-2 font-mono text-xs text-flame font-semibold uppercase tracking-widest">
             <span>( CHRONICLE // 1986 &mdash; 2013 )</span>
           </div>
@@ -124,30 +163,46 @@ export function Hero({ isReady }: HeroProps) {
           </div>
         </div>
 
-        {/* Main Title: Strictly 2 Clean Lines without clipping */}
+        {/* Main Title: Voldogfood Masked Split-Word Reveal */}
         <div className="my-auto py-8 md:py-12 max-w-5xl">
-          {/* Line 1: 26 YEARS. 38 TROPHIES. */}
-          <div className="overflow-visible">
-            <h1
-              ref={titleLine1Ref}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-[3.25rem] font-black tracking-tight leading-[1.1] uppercase font-display text-flax-smoke-50 whitespace-nowrap"
-            >
-              26 Years. 38 Trophies.
+          {/* Line 1: 26 Years. 38 Trophies. */}
+          <div className="overflow-hidden py-1">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.08] uppercase font-display text-flax-smoke-50">
+              <span className="inline-block hero-word will-change-transform">26</span>{" "}
+              <span className="inline-block hero-word will-change-transform">Years.</span>{" "}
+              <span className="inline-block hero-word will-change-transform">38</span>{" "}
+              <span className="inline-block hero-word will-change-transform">Trophies.</span>
             </h1>
           </div>
 
-          {/* Line 2: ONE MANAGER. */}
-          <div className="overflow-visible mt-2 sm:mt-3">
-            <h1
-              ref={titleLine2Ref}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-[3.25rem] font-black tracking-tight leading-[1.1] uppercase font-display text-flame whitespace-nowrap"
-            >
-              One Manager.
+          {/* Line 2: One Manager with Local Micro SVG Underline */}
+          <div className="overflow-hidden py-1 mt-1 sm:mt-2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.08] uppercase font-display text-flame">
+              <span className="inline-block hero-word will-change-transform">One</span>{" "}
+              <span className="inline-block hero-word will-change-transform relative">
+                Manager.
+                {/* Voldogfood-inspired Micro SVG Draw Underline */}
+                <svg
+                  className="absolute -bottom-2 left-0 w-full overflow-visible pointer-events-none"
+                  height="12"
+                  viewBox="0 0 240 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    ref={underlineRef}
+                    d="M 3 9 C 60 14, 180 14, 237 5"
+                    stroke="#DA291C"
+                    strokeWidth="3.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
             </h1>
           </div>
 
           {/* Clean 2-line Balanced Description */}
-          <div className="mt-5 md:mt-6 max-w-[44ch]">
+          <div className="mt-6 md:mt-8 max-w-[46ch]">
             <p
               ref={paragraphRef}
               className="text-sm sm:text-base text-flax-smoke-300 font-normal leading-relaxed font-body text-balance"
