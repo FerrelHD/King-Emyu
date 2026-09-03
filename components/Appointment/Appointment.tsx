@@ -55,7 +55,7 @@ export function Appointment() {
     <section
       ref={targetRef}
       id="appointment"
-      className="relative min-h-screen w-full bg-transparent text-flax-smoke-100 padding-x pt-24 sm:pt-28 pb-16 select-none flex flex-col justify-between border-t border-white/10"
+      className="relative min-h-screen w-full bg-[#0A0A0A] text-flax-smoke-100 padding-x pt-24 sm:pt-28 pb-16 select-none flex flex-col justify-between border-t border-white/10"
     >
       <div className="max-w-6xl mx-auto w-full flex flex-col justify-between flex-1">
         {/* Section Header Tag */}

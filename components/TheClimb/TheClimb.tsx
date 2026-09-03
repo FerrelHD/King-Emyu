@@ -9,7 +9,7 @@ export function TheClimb() {
     <section
       ref={sectionRef}
       id="the-climb"
-      className="relative min-h-screen w-full bg-transparent text-flax-smoke-50 overflow-hidden select-none border-t border-white/10 flex flex-col justify-between padding-x py-16 md:py-24"
+      className="relative min-h-screen w-full bg-[#0A0A0A] text-flax-smoke-50 overflow-hidden select-none border-t border-white/10 flex flex-col justify-between padding-x py-16 md:py-24"
     >
       {/* Top Header Tag */}
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between border-b border-white/10 pb-4 z-10">

@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Preloader } from "@/components/Preloader/Preloader";
 import { Header } from "@/components/Navigation/Header";
 import { Hero } from "@/components/Hero/Hero";
-import { RedThread } from "@/components/Decorative/RedThread";
 import { Appointment } from "@/components/Appointment/Appointment";
 import { Rebuild } from "@/components/Rebuild/Rebuild";
 import { FirstTitle } from "@/components/FirstTitle/FirstTitle";
@@ -38,23 +37,17 @@ export default function Home() {
       {/* Act I: The Beginning / Hero */}
       <Hero isReady={isLoaded} />
 
-      {/* Multi-Section Continuous Red Thread Zone (Act I -> Act II) */}
-      <div id="odyssey-zone" className="relative w-full overflow-visible">
-        {/* Wide Cross-Section Glowing SVG Line */}
-        <RedThread targetZoneId="odyssey-zone" />
+      {/* Act I · Chapter 01: The Appointment (1986) */}
+      <Appointment />
 
-        {/* Act I · Chapter 01: The Appointment (1986) */}
-        <Appointment />
+      {/* Act I · Chapter 02: The Rebuild & Class of '92 (Horizontal Cards) */}
+      <Rebuild />
 
-        {/* Act I · Chapter 02: The Rebuild & Class of '92 (Horizontal Cards) */}
-        <Rebuild />
+      {/* Act II · Chapter 01: First Title (1993) */}
+      <FirstTitle />
 
-        {/* Act II · Chapter 01: First Title (1993) */}
-        <FirstTitle />
-
-        {/* Act II · Chapter 02: The Climb (The Odyssey) */}
-        <TheClimb />
-      </div>
+      {/* Act II · Chapter 02: The Climb (The Odyssey) */}
+      <TheClimb />
 
       {/* Act II · Chapter 03: The Treble 1999 (Pinned Centerpiece) */}
       <Treble1999 />

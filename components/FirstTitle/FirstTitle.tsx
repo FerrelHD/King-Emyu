@@ -57,7 +57,7 @@ export function FirstTitle() {
     <section
       ref={containerRef}
       id="first-title"
-      className="relative min-h-screen w-full bg-transparent text-flax-smoke-50 padding-x py-20 md:py-28 flex flex-col justify-between select-none border-t border-white/10"
+      className="relative min-h-screen w-full bg-[#0A0A0A] text-flax-smoke-50 padding-x py-20 md:py-28 flex flex-col justify-between select-none border-t border-white/10"
     >
       <div className="max-w-6xl mx-auto w-full h-full flex flex-col justify-between flex-1 z-10">
         {/* Top Section Tag */}
