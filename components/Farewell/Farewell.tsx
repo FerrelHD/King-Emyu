@@ -3,7 +3,6 @@
 import React, { useRef } from "react";
 import { useGSAP } from "@/lib/use-gsap";
 import { gsap } from "@/lib/gsap-config";
-import { FergieSignature } from "./FergieSignature";
 
 const SPEECH_TEXT =
   "I would like to remind you that when we had bad times here, the club stood by me, all my staff stood by me, the players stood by me. Your job now is to stand by our new manager.";
@@ -31,7 +30,7 @@ export function Farewell() {
           pinSpacing: true,
           scrub: 1.2,
           start: "top top",
-          end: "+=220%",
+          end: "+=180%",
         },
       });
 
@@ -47,7 +46,7 @@ export function Farewell() {
       if (sign) {
         tl.fromTo(
           sign,
-          { opacity: 0, y: 30 },
+          { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
         );
       }
@@ -60,7 +59,7 @@ export function Farewell() {
     <section
       ref={sectionRef}
       id="farewell"
-      className="relative h-screen w-full bg-[#050505] text-flax-smoke-50 overflow-hidden select-none flex flex-col justify-between py-8 md:py-12 padding-x border-t border-white/10"
+      className="relative h-screen w-full bg-[#0A0A0A] text-flax-smoke-50 overflow-hidden select-none flex flex-col justify-between py-10 md:py-14 padding-x border-t border-white/10"
     >
       <div className="max-w-4xl mx-auto w-full h-full flex flex-col justify-between flex-1">
         {/* Top Header */}
@@ -73,10 +72,10 @@ export function Farewell() {
           </div>
         </div>
 
-        {/* Main Centerpiece Word-By-Word Speech & Signature */}
-        <div className="my-auto text-center py-4 flex flex-col justify-center">
-          <div className="font-mono text-[10px] tracking-[0.3em] text-flax-smoke-400 uppercase mb-4">
-            ( FINAL ORATION &middot; CENTER CIRCLE )
+        {/* Main Centerpiece Word-By-Word Speech */}
+        <div className="my-auto text-center py-6 flex flex-col justify-center">
+          <div className="font-mono text-[10px] tracking-[0.3em] text-flax-smoke-400 uppercase mb-5">
+            ( THE LAST SPEECH &middot; CENTER CIRCLE )
           </div>
 
           <div
@@ -99,16 +98,22 @@ export function Farewell() {
             })}
           </div>
 
-          {/* Animated Ferguson Signature */}
-          <div ref={signRef} className="mt-6">
-            <FergieSignature />
+          {/* Dignified Editorial Sign-off (No Fake AI SVG) */}
+          <div ref={signRef} className="mt-8 sm:mt-12 flex flex-col items-center">
+            <div className="w-10 h-[1px] bg-flame mb-4" />
+            <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-flax-smoke-50 uppercase">
+              Sir Alexander Chapman Ferguson CBE
+            </h3>
+            <p className="font-mono text-xs text-flax-smoke-400 tracking-[0.2em] uppercase mt-1">
+              Manager, Manchester United &middot; 1986 &mdash; 2013
+            </p>
           </div>
         </div>
 
         {/* Footer */}
         <div className="flex items-center justify-between border-t border-white/10 pt-4 font-mono text-xs text-flax-smoke-400 tracking-widest uppercase">
           <span>( MATCH 1,500 &middot; 26 YEARS, 194 DAYS )</span>
-          <span>( CLOSING COLOPHON &darr; )</span>
+          <span>( 38 SILVERWARE HEIRS )</span>
         </div>
       </div>
     </section>

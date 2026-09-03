@@ -5,13 +5,8 @@ import { Preloader } from "@/components/Preloader/Preloader";
 import { Header } from "@/components/Navigation/Header";
 import { Hero } from "@/components/Hero/Hero";
 import { Appointment } from "@/components/Appointment/Appointment";
-import { Rebuild } from "@/components/Rebuild/Rebuild";
-import { FirstTitle } from "@/components/FirstTitle/FirstTitle";
-import { TheClimb } from "@/components/TheClimb/TheClimb";
 import { Treble1999 } from "@/components/Treble1999/Treble1999";
-import { TheThreeTeams } from "@/components/TheThreeTeams/TheThreeTeams";
 import { NumbersGrid } from "@/components/NumbersGrid/NumbersGrid";
-import { LegacyTimeline } from "@/components/LegacyTimeline/LegacyTimeline";
 import { Farewell } from "@/components/Farewell/Farewell";
 import { Closing } from "@/components/Closing/Closing";
 import { refreshScrollTrigger } from "@/lib/lenis";
@@ -34,34 +29,19 @@ export default function Home() {
       {/* Intro Preloader Counter (1986 -> 2013) */}
       <Preloader onLoadingComplete={handleLoadingComplete} />
 
-      {/* Act I: The Beginning / Hero */}
+      {/* Prologue: The Architect / Hero */}
       <Hero isReady={isLoaded} />
 
-      {/* Act I · Chapter 01: The Appointment (1986) */}
+      {/* Chapter 01: The Arrival & The Perch (1986-1992) */}
       <Appointment />
 
-      {/* Act I · Chapter 02: The Rebuild & Class of '92 (Horizontal Cards) */}
-      <Rebuild />
-
-      {/* Act II · Chapter 01: First Title (1993) */}
-      <FirstTitle />
-
-      {/* Act II · Chapter 02: The Climb (The Odyssey) */}
-      <TheClimb />
-
-      {/* Act II · Chapter 03: The Treble 1999 (Pinned Centerpiece) */}
+      {/* Chapter 02: The Treble (May 1999) */}
       <Treble1999 />
 
-      {/* Act III &middot; Chapter 01: The Three Dynasties (Interactive Vertical Tabs) */}
-      <TheThreeTeams />
-
-      {/* Act III &middot; Chapter 02: The Numbers (Scrubbed Metric Grid) */}
+      {/* Chapter 03: The Scale of Dominance (The Numbers) */}
       <NumbersGrid />
 
-      {/* Act III &middot; Chapter 03: Legacy Timeline (1999-2013 Milestones) */}
-      <LegacyTimeline />
-
-      {/* Epilogue &middot; The Farewell (Word-by-Word Speech) */}
+      {/* Chapter 04: The Final Address (12 May 2013) */}
       <Farewell />
 
       {/* Colophon & Closing Credits */}
