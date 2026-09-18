@@ -61,7 +61,7 @@ export function refreshScrollTrigger() {
 
 export function destroyLenis() {
   if (lenisInstance) {
-    const { gsap, ScrollTrigger } = registerGSAP();
+    const { gsap } = registerGSAP();
     if (tickerCallback) {
       gsap.ticker.remove(tickerCallback);
       tickerCallback = null;

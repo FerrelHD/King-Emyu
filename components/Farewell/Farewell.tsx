@@ -59,28 +59,30 @@ export function Farewell() {
     <section
       ref={sectionRef}
       id="farewell"
-      className="relative h-screen w-full bg-[#0A0A0A] text-flax-smoke-50 overflow-hidden select-none flex flex-col justify-between py-10 md:py-14 padding-x border-t border-white/10"
+      className="relative h-screen w-full bg-[#0A0A0A] text-flax-smoke-50 overflow-hidden select-none flex flex-col justify-between py-12 md:py-16 padding-x"
     >
       <div className="max-w-4xl mx-auto w-full h-full flex flex-col justify-between flex-1">
         {/* Top Header */}
-        <div className="flex items-center justify-between border-b border-white/10 pb-4">
-          <div className="flex items-center gap-2 font-mono text-xs text-flame font-semibold uppercase tracking-wider">
-            <span>( EPILOGUE // 12 MAY 2013 )</span>
+        <div className="flex items-center justify-between font-mono text-xs text-flax-smoke-400 tracking-wider">
+          <div className="flex items-center gap-2">
+            <span className="text-flame font-medium">Epilogue</span>
+            <span className="text-flax-smoke-600">&middot;</span>
+            <span>12 May 2013</span>
           </div>
-          <div className="font-mono text-xs tracking-widest text-flax-smoke-400 uppercase hidden sm:block">
-            ( THE FINAL ADDRESS &middot; OLD TRAFFORD )
+          <div className="hidden sm:block text-flax-smoke-500 uppercase tracking-widest text-[11px]">
+            The Final Address &middot; Center Circle, Old Trafford
           </div>
         </div>
 
         {/* Main Centerpiece Word-By-Word Speech */}
-        <div className="my-auto text-center py-6 flex flex-col justify-center">
-          <div className="font-mono text-[10px] tracking-[0.3em] text-flax-smoke-400 uppercase mb-5">
-            ( THE LAST SPEECH &middot; CENTER CIRCLE )
+        <div className="my-auto text-center py-8 flex flex-col justify-center">
+          <div className="font-mono text-[11px] tracking-widest text-flax-smoke-500 uppercase mb-8">
+            The Last Words to the Stretford End
           </div>
 
           <div
             ref={quoteRef}
-            className="text-lg sm:text-2xl md:text-3xl font-bold font-display tracking-tight leading-relaxed uppercase max-w-3xl mx-auto"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display tracking-tight leading-snug max-w-3xl mx-auto"
           >
             {words.map((word, i) => {
               const isHighlight =
@@ -88,7 +90,7 @@ export function Farewell() {
               return (
                 <span
                   key={i}
-                  className={`quote-word inline-block mr-1.5 sm:mr-2.5 opacity-15 transition-colors duration-300 ${
+                  className={`quote-word inline-block mr-2 sm:mr-3 opacity-15 transition-colors duration-300 ${
                     isHighlight ? "highlight-word font-black" : ""
                   }`}
                 >
@@ -98,22 +100,21 @@ export function Farewell() {
             })}
           </div>
 
-          {/* Dignified Editorial Sign-off (No Fake AI SVG) */}
-          <div ref={signRef} className="mt-8 sm:mt-12 flex flex-col items-center">
-            <div className="w-10 h-[1px] bg-flame mb-4" />
-            <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-flax-smoke-50 uppercase">
-              Sir Alexander Chapman Ferguson CBE
+          {/* Dignified Editorial Sign-off */}
+          <div ref={signRef} className="mt-12 sm:mt-16 flex flex-col items-center">
+            <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-flax-smoke-50">
+              Sir Alex Ferguson CBE
             </h3>
-            <p className="font-mono text-xs text-flax-smoke-400 tracking-[0.2em] uppercase mt-1">
+            <p className="font-mono text-xs text-flax-smoke-400 tracking-widest uppercase mt-1.5">
               Manager, Manchester United &middot; 1986 &mdash; 2013
             </p>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between border-t border-white/10 pt-4 font-mono text-xs text-flax-smoke-400 tracking-widest uppercase">
-          <span>( MATCH 1,500 &middot; 26 YEARS, 194 DAYS )</span>
-          <span>( 38 SILVERWARE HEIRS )</span>
+        <div className="flex items-center justify-between font-mono text-xs text-flax-smoke-500 tracking-wider">
+          <span>Match 1,500 &middot; 26 Years, 194 Days</span>
+          <span>Old Trafford, Manchester</span>
         </div>
       </div>
     </section>

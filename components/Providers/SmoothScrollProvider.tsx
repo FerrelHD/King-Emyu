@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState, useCallback } from "react";
+import React, { createContext, useContext, useEffect, useCallback } from "react";
 import Lenis from "lenis";
 import { initLenis, destroyLenis, getLenis } from "@/lib/lenis";
 
@@ -19,11 +19,8 @@ const ScrollContext = createContext<ScrollContextType>({
 });
 
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
-  const [lenis, setLenis] = useState<Lenis | null>(null);
-
   useEffect(() => {
-    const instance = initLenis();
-    setLenis(instance);
+    initLenis();
 
     return () => {
       destroyLenis();
@@ -46,7 +43,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
   }, []);
 
   return (
-    <ScrollContext.Provider value={{ lenis, stopScroll, startScroll, scrollTo }}>
+    <ScrollContext.Provider value={{ lenis: getLenis(), stopScroll, startScroll, scrollTo }}>
       {children}
     </ScrollContext.Provider>
   );

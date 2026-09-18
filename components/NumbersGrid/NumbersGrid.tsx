@@ -15,26 +15,26 @@ const SECONDARY_METRICS: MetricData[] = [
   {
     id: "metric-trophies",
     endValue: 38,
-    label: "( MAJOR SILVERWARE )",
-    sublabel: "13 PL &bull; 5 FA &bull; 4 LC &bull; 2 UCL",
+    label: "Major Honours",
+    sublabel: "13 Premier Leagues &bull; 5 FA &bull; 2 UCL",
   },
   {
     id: "metric-days",
     endValue: 9694,
-    label: "( DAYS IN COMMAND )",
+    label: "Days in Command",
     sublabel: "06 Nov 1986 &mdash; 19 May 2013",
   },
   {
     id: "metric-goals",
     endValue: 2769,
-    label: "( GOALS PLUNDERED )",
-    sublabel: "1,500 Competitive Fixtures",
+    label: "Goals Scored",
+    sublabel: "Across 1,500 Fixtures",
   },
   {
     id: "metric-titles",
     endValue: 20,
-    label: "( THE PERCH DISMANTLED )",
-    sublabel: "Knocked Liverpool Off Top",
+    label: "League Titles",
+    sublabel: "English Record Total",
   },
 ];
 
@@ -92,37 +92,37 @@ export function NumbersGrid() {
     <section
       ref={containerRef}
       id="numbers"
-      className="relative min-h-screen w-full bg-[#0A0A0A] text-flax-smoke-50 padding-x py-20 md:py-28 flex flex-col justify-between select-none border-t border-white/10"
+      className="relative min-h-screen w-full bg-[#0A0A0A] text-flax-smoke-50 padding-x py-32 md:py-48 flex flex-col justify-between select-none"
     >
-      <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-between flex-1">
+      <div className="max-w-6xl mx-auto w-full h-full flex flex-col justify-between flex-1">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/10 pb-6 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
           <div>
-            <div className="font-mono text-xs tracking-[0.25em] text-flame font-semibold uppercase mb-1">
-              ( CHAPTER 03 // EMPIRICAL RECORD )
+            <div className="font-mono text-xs text-flame tracking-wider uppercase mb-2">
+              Chapter 03 &mdash; Empirical Record
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display tracking-tight uppercase text-flax-smoke-50">
               The Scale of Dominance
             </h2>
           </div>
-          <div className="font-mono text-xs text-flax-smoke-400 uppercase tracking-widest sm:text-right">
-            ( 1,500 FIXTURES &middot; 26 YEARS &middot; 38 HONOURS )
+          <div className="font-mono text-xs text-flax-smoke-500 uppercase tracking-widest">
+            1,500 Fixtures &middot; 26 Years &middot; 38 Honours
           </div>
         </div>
 
         {/* Spacious Asymmetric Data Spread with Maximum Breathing Room */}
-        <div className="my-auto py-16 md:py-20">
+        <div className="my-auto py-20 md:py-28">
           {/* Monumental Hero Stat Spread */}
-          <div className="border-b border-white/10 pb-14 mb-14">
+          <div className="pb-16 md:pb-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-baseline">
-              <div className="lg:col-span-6">
-                <div className="font-mono text-xs text-flame tracking-[0.25em] uppercase font-bold mb-3">
-                  ( ALL COMPETITIONS )
+              <div className="lg:col-span-7">
+                <div className="font-mono text-xs text-flame tracking-wider uppercase font-medium mb-3">
+                  All Competitive Competitions
                 </div>
-                <div className="flex items-baseline gap-3">
+                <div className="flex items-baseline gap-4">
                   <span
                     id="main-metric-wins"
-                    className="text-7xl sm:text-8xl md:text-9xl lg:text-[8.5rem] font-black font-display tracking-tighter text-flax-smoke-50 leading-none tabular-nums"
+                    className="text-7xl sm:text-8xl md:text-9xl lg:text-[9.5rem] font-black font-display tracking-tighter text-flax-smoke-50 leading-none tabular-nums"
                   >
                     0
                   </span>
@@ -132,25 +132,25 @@ export function NumbersGrid() {
                 </div>
               </div>
 
-              <div className="lg:col-span-6 flex flex-col justify-end">
+              <div className="lg:col-span-5 flex flex-col justify-end">
                 <div className="text-2xl sm:text-3xl font-display font-bold text-flax-smoke-50 tracking-tight">
-                  59.67% Win Ratio Across 1,500 Matches
+                  59.7% Win Rate across 1,500 Matches
                 </div>
-                <div className="mt-3 flex flex-wrap gap-4 font-mono text-xs text-flax-smoke-400 uppercase tracking-wider">
-                  <span>DRAWS: 338 (22.5%)</span>
+                <div className="mt-3 flex flex-wrap gap-4 font-mono text-xs text-flax-smoke-400 tracking-wider">
+                  <span>Draws: 338 (22.5%)</span>
                   <span>&bull;</span>
-                  <span>LOSSES: 267 (17.8%)</span>
+                  <span>Losses: 267 (17.8%)</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* 4 Clean Secondary Metrics */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-14 pt-8">
             {SECONDARY_METRICS.map((m) => (
-              <div key={m.id} className="flex flex-col justify-between border-t border-white/10 pt-5">
+              <div key={m.id} className="flex flex-col justify-between">
                 <div>
-                  <div className="font-mono text-[10px] tracking-widest text-flax-smoke-400 uppercase mb-2">
+                  <div className="font-mono text-xs tracking-wider text-flax-smoke-400 uppercase mb-2">
                     {m.label}
                   </div>
                   <div
@@ -160,7 +160,7 @@ export function NumbersGrid() {
                     0
                   </div>
                   <div
-                    className="font-mono text-[11px] text-flame font-semibold mt-2.5"
+                    className="font-mono text-[11px] text-flax-smoke-500 mt-2"
                     dangerouslySetInnerHTML={{ __html: m.sublabel }}
                   />
                 </div>
@@ -170,9 +170,9 @@ export function NumbersGrid() {
         </div>
 
         {/* Section Footer */}
-        <div className="flex items-center justify-between border-t border-white/10 pt-5 font-mono text-xs text-flax-smoke-400 tracking-widest uppercase">
-          <span>( SOURCE // OFFICIAL CLUB HISTORICAL REGISTRY )</span>
-          <span>( 12 MAY 2013 &rarr; )</span>
+        <div className="flex items-center justify-between font-mono text-xs text-flax-smoke-500 tracking-wider">
+          <span>Official Historical Registry</span>
+          <span>12 May 2013 &rarr;</span>
         </div>
       </div>
     </section>

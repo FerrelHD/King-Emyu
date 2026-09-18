@@ -84,28 +84,28 @@ export function Treble1999() {
     <section
       ref={sectionRef}
       id="treble-1999"
-      className="relative min-h-screen w-full bg-[#0A0A0A] text-flax-smoke-50 padding-x py-24 md:py-32 flex flex-col justify-between select-none border-t border-white/10"
+      className="relative min-h-screen w-full bg-[#0A0A0A] text-flax-smoke-50 padding-x py-32 md:py-48 flex flex-col justify-between select-none"
     >
-      <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-between flex-1">
+      <div className="max-w-6xl mx-auto w-full h-full flex flex-col justify-between flex-1">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/10 pb-6 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
           <div>
-            <div className="font-mono text-xs tracking-[0.25em] text-flame font-semibold uppercase mb-1">
-              ( CHAPTER 02 // MAY 1999 )
+            <div className="font-mono text-xs text-flame tracking-wider uppercase mb-2">
+              Chapter 02 &mdash; May 1999
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display tracking-tight uppercase text-flax-smoke-50">
               The Treble
             </h2>
           </div>
-          <div className="font-mono text-xs text-flax-smoke-400 uppercase tracking-widest sm:text-right">
-            ( 10 DAYS &middot; THREE TROPHIES &middot; IMMORTALITY )
+          <div className="font-mono text-xs text-flax-smoke-500 uppercase tracking-widest">
+            10 Days &middot; Three Trophies &middot; Immortality
           </div>
         </div>
 
         {/* 3 Pure Frameless Editorial Columns */}
         <div
           ref={cardsRef}
-          className="my-auto py-16 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 items-start"
+          className="my-auto py-20 md:py-28 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 items-start"
         >
           {STAGES.map((stage) => (
             <div
@@ -113,24 +113,24 @@ export function Treble1999() {
               className="treble-col flex flex-col justify-between space-y-6"
             >
               {/* Step & Date */}
-              <div className="flex items-baseline justify-between border-b border-white/10 pb-3">
-                <span className="font-display font-black text-4xl text-flame">
-                  {stage.step}
+              <div className="flex items-baseline justify-between">
+                <span className="font-mono text-sm text-flame font-bold tracking-wider">
+                  Phase {stage.step}
                 </span>
-                <span className="font-mono text-[11px] tracking-widest text-flax-smoke-400 uppercase">
+                <span className="font-mono text-[11px] tracking-wider text-flax-smoke-500 uppercase">
                   {stage.date}
                 </span>
               </div>
 
               {/* Trophy & Match */}
               <div>
-                <h3 className="text-2xl sm:text-3xl font-bold font-display tracking-tight text-flax-smoke-50 uppercase leading-snug">
+                <h3 className="text-2xl sm:text-3xl font-bold font-display tracking-tight text-flax-smoke-50 leading-snug">
                   {stage.trophy}
                 </h3>
-                <div className="mt-2 font-mono text-xs text-flame tracking-wider uppercase">
+                <div className="mt-2 font-mono text-xs text-flax-smoke-300 tracking-wider">
                   vs {stage.opponent} &bull; {stage.scoreline}
                 </div>
-                <div className="font-mono text-[11px] text-flax-smoke-400 uppercase mt-0.5">
+                <div className="font-mono text-[11px] text-flax-smoke-500 tracking-wide mt-1">
                   {stage.venue}
                 </div>
               </div>
@@ -144,12 +144,12 @@ export function Treble1999() {
         </div>
 
         {/* Immortal Quote Anchor */}
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <blockquote className="font-display text-xl sm:text-2xl font-bold text-flax-smoke-50 tracking-tight uppercase italic">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 pt-8">
+          <blockquote className="font-display text-xl sm:text-2xl font-bold text-flax-smoke-50 tracking-tight italic">
             &ldquo;Football, bloody hell.&rdquo;
           </blockquote>
-          <div className="font-mono text-xs text-flame tracking-widest uppercase">
-            &mdash; Sir Alex Ferguson, Camp Nou Tunnel
+          <div className="font-mono text-xs text-flax-smoke-400 tracking-wider">
+            Sir Alex Ferguson &mdash; Camp Nou, 26 May 1999
           </div>
         </div>
       </div>
